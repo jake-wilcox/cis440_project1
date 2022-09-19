@@ -1,2 +1,2 @@
 # CIS440_Project1
-the cyber booleans amazing game platform
+The cyber booleans amazing game platform
