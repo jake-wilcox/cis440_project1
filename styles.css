@@ -1,6 +1,22 @@
 .gameImgs{
-    max-width: 30%;
-    max-height: auto;
-    margin: auto;
-    border: auto;
+    max-width: 400px;
+    max-height: 400px;
+    margin:auto;
+    align-self: auto;
+    margin: 10px
 }
+
+table, td, tr{
+    max-width: 95%;
+}
+table{
+    margin:auto
+}
+
+.listOfGames{
+    font-size: 20pt;
+    text-align: center;
+}
+
+
+
