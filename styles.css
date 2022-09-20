@@ -10,17 +10,17 @@ nav{
     position: sticky;
     top: 0;
     left: 0;
-    background-color: #0A1128;
+    background-color: #07004D;
     z-index: 1;
     display: flex;
     align-items: center; 
     padding: 20px 70px;
     justify-content: space-between;
-    box-shadow: 0 7px 7px -7px #0A1128;
+    box-shadow: 0 7px 7px -7px #07004D;
 }
 
 nav h1 {
-    color: #FEFCFB;
+    color: #F3DFBF;
     padding-right: 10px;
 }
 
@@ -45,7 +45,7 @@ nav ul{
 }
 
 .nav-link{
-    background-color: #cd188a;
+    background-color: #42E2B8;
     border: none;
     padding: 10px;
     border-radius: 7px;
@@ -55,11 +55,11 @@ nav ul{
 }
 
 .nav-link:hover{
-    color: white;
+    color: #F3DFBF;
 }
 
 .game-button-selector{ 
-    border: #cd188a 2px solid;  
+    border: #2D82B7 2px solid;  
     border-radius: 10px;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
@@ -91,11 +91,10 @@ nav ul{
 }
 
 footer{
-    background-color: #0A1128;
-    color: #FEFCFB;
+    background-color: #07004D;
+    color: #F3DFBF;
     padding: 1.25rem;
     text-align: center;
-
     border-top: solid 5px #FEFCFB;
     position: absolute;
     bottom: 0;
@@ -109,11 +108,10 @@ footer{
 #page-info-wrapper {
     width: 33%;
     margin: auto;
-    border: solid 2px #300e95;
     margin-top: 20px;
     border-radius: 20px;
-    color: #FEFCFB;
-    background-color: #3a12b3;
+    color: #07004D;
+    background-color: #42E2B8;
     padding: 10px 0;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 2px 4px 0px, rgba(60, 64, 67, 0.15) 0px 4px 12px 2px;
     font-weight: bold;
