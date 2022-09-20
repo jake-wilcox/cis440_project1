@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&family=Kanit&family=Nanum+Gothic:wght@400;700&family=Noto+Sans&family=Rajdhani&family=Roboto:wght@100&family=Source+Code+Pro&family=Space+Grotesk:wght@300&family=Ubuntu&display=swap');
+
+
+html {
+    font-family: 'Rajdhani', sans-serif;
+    scroll-behavior: smooth;
+}
+
+nav{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #0A1128;
+    z-index: 1;
+    display: flex;
+    align-items: center; 
+    padding: 0 70px;
+    justify-content: space-between;
+
+}
+
+nav h1 {
+    color: #FEFCFB;
+    padding-right: 10px;
+}
+
+.nav-header{ 
+    font-size: 35px;
+}
+
+ul {
+    list-style-type: none;
+
+}
+
+nav button{
+    color: #300e95;
+
+}
+
+nav ul{
+    display: flex;
+    gap: 1.9rem;
+    font-size: 20px;
+}
+
+.nav-link{
+    background-color: #cd188a;
+    border: none;
+    padding: 10px;
+    border-radius: 7px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 17px;
+    font-weight: bolder;
+}
+
+.nav-link:hover{
+    color: white;
+}
