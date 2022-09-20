@@ -81,6 +81,13 @@ nav ul{
     text-align: center;
 }
 
+.game-button-selector:hover,
+.game-button-selector:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em #ead6ba;
+    transform: translateY(-0.35em);
+    background-color: #d3d3d3;
+}
+
 footer{
     background-color: #0A1128;
     color: #FEFCFB;
@@ -88,5 +95,8 @@ footer{
     text-align: center;
     line-height: 1.7rem;
     border-top: solid 5px #FEFCFB;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
