@@ -59,11 +59,15 @@ nav ul{
 }
 
 .game-button-selector{ 
-    border: none;
+    border: #cd188a 2px solid;  
+    border-radius: 10px;
 }
 
 #games-container {
     display: flex;
     padding: 10px;
+    justify-content: space-between;
 }
+
+
 
