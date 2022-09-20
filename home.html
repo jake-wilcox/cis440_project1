@@ -21,39 +21,41 @@
         </nav>
 
 
-        <div id="games-container">
-
-            <div id="tictactoe-container">
-                <div class="game-icon"> 
-                    <button type="button" class="game-button-selector"> 
-                        <img src="images/tictactoe.png" class="game-image" alt="Tic Tac Toe Image"/>
-                    </button>
-                    <h2 class="game-title">Tic Tac Toe</h2>
-
-                </div>
-            </div>
-
-
-            <div id="snake-container">
-                <div class="game-icon">
-                    <button type="button" class="game-button-selector">
-                        <img src="images/snake.png" class="game-image" alt="Snake Image"/>
-                    </button>
-                    <h2 class="game-title">Snake</h2>
-
-                </div>
-            </div>
+        <div id="game-container">
 
             
-            <div id="hangman-container">
-                <div class="game-icon">
-                    <button type="button" class="game-button-selector">
-                        <img src="images/hangman.jpg" class="game-image" alt="Hangman Image"/>
+                <div class="game-icon"> 
+                    <button type="button" class="game-button-selector" id="tictactoe"> 
+                        <img src="images/tictactoe.png" class="game-image" alt="Tic Tac Toe Image" width="200" height="200"/>
                     </button>
-                    <h2 class="game-title">Hangman</h2>
+                    <label for="tictactoe" class="game-title">
+                        <h2 >Tic Tac Toe</h2>
+                    </label>
 
                 </div>
-            </div>
+
+
+                <div class="game-icon">
+                    <button type="button" class="game-button-selector" id="snake">
+                        <img src="images/snake.png" class="game-image" alt="Snake Image" width="200" height="200"/>
+                    </button>
+
+                    <label for="snake" class="game-title">
+                        <h2 class="game-title">Snake</h2>
+                    </label>
+
+                </div>
+
+            
+                <div class="game-icon">
+                    <button type="button" class="game-button-selector" id="hangman">
+                        <img src="images/hangman.jpg" class="game-image" alt="Hangman Image"/>
+                    </button>
+                    <label for="hangman" class="game-title">
+                        <h2 class="game-title">Hangman</h2>
+                    </label>
+
+                </div>
 
         </div>
 
