@@ -81,4 +81,12 @@ nav ul{
     text-align: center;
 }
 
+footer{
+    background-color: #0A1128;
+    color: #FEFCFB;
+    padding: 1.25rem;
+    text-align: center;
+    line-height: 1.7rem;
+    border-top: solid 5px #FEFCFB;
+}
 
