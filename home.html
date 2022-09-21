@@ -3,63 +3,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Home Page</title>
-    <link href="styles.css" rel="stylesheet" />
+    <meta charset="utf-8"/>
+    <title>Kool Gamez</title>
+    <link href="styles.css" rel="stylesheet"/>
 
 </head>
-<main>
-    <div class="header">
+    <body>
         <nav>
-            <h1>Kool Gamez (Working title)</h1>
+            <h1 class="nav-header">Kool Gamez (Working title)</h1>
 
             <ul>
-                <li><a class="nav-link">Create Account</a></li>
-                <li><a class="nav-link">Login</a></li>
-            </ul>
-
-        </nav>
-    </div>
-
-
-    <body>
-        <h2 id="featuredGames">Featured Games</h2>
-        <p id="signUpMsg">Please sign in to play or continue as guest!</p>
-        <table id="gameTable">
-            <tr>
-                <td><img class="gameImgs" id="ticTacToeImg" src="./images/tictactoe.jpg" alt="Tic Tac Toe Game"></td>
-                <td><img class="gameImgs" id="snakeImg" src="./images/snake.png" alt="Snake Game"></td>
-                <td><img class="gameImgs" id="hangManImg" src="./images/hangman.jpg" alt="Hang Man Game"></td>
-            </tr>
-            <tr>
-                <td class="listOfGames" id="ticTacToe"> Tic Tac Toe </td>
-                <td class="listOfGames" id="snake"> Snake </td>
-                <td class="listOfGames" id="hangMan"> Hang Man</td>
-            </tr>
-
-            <!-- idea: include instructions on how to play? -->
-            <!-- <tr>
-                <td class="howToPlay" id="ticTacToeInstructions">
-                    How To Play:
-                    <ul>Use your arrow keys to move the snake up, down, left and right. </ul>
-                </td>
-                <td class="howToPlay" id="snakeInstructions">
-                    How to Play:
-                    <ul> instructions here</ul>
-                </td>
-                <td class = how to
-
-
+                <li><button type="button" class="nav-link">Create Account</button></li>
+                <li><button type="button" class="nav-link">Login</button></li>
+                <li><button type="button" class="nav-link">Home</button></li>
                 
-            </tr> -->
+            </ul>
+            
+        </nav>
 
-        </table>
+        <div id="page-info-container">
+            <div id="page-info-wrapper">
+                <p id="choosegame-header" class="page-info">Choose a game below!</p>
+                <p id="multiplayer-header" class="page-info">Multiplayer functionality is only available for users who are logged in.</p>
+            </div>
+        </div>
 
+
+        <div class="game-container">
+                <div class="game-icon"> 
+                    <button type="button" class="game-button-selector" id="tictactoe"> 
+                        <img src="images/tictactoe.png" class="game-image" alt="Tic Tac Toe Image" width="200" height="200"/>
+                    </button>
+                    <label for="tictactoe" class="game-label">
+                        <h2 class="game-title">Tic Tac Toe</h2>
+                    </label>
+
+                </div>
+
+
+                <div class="game-icon">
+                    <button type="button" class="game-button-selector" id="snake">
+                        <img src="images/snake.png" class="game-image" alt="Snake Image" width="200" height="200"/>
+                    </button>
+
+                    <label for="snake" class="game-label">
+                        <h2 class="game-title">Snake</h2>
+                    </label>
+
+                </div>
+
+            
+                <div class="game-icon">
+                    <button type="button" class="game-button-selector" id="hangman">
+                        <img src="images/hangman.jpg" class="game-image" alt="Hangman Image"/>
+                    </button>
+                    <label for="hangman" class="game-label">
+                        <h2 class="game-title">Hangman</h2>
+                    </label>
+
+                </div>
+
+        </div>
+
+        <footer id="footer">
+            <p class="copyright">&copy; Copyright 2022</p>
+            <p class="copyright">Built with &#x2661; by Cyber Boolean</p>
+        </footer>
 
     </body>
-
-
-
-</main>
 
 </html>
