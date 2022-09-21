@@ -3,7 +3,7 @@
 
 html {
     font-family: 'Rajdhani', sans-serif;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
 
 nav{
@@ -56,6 +56,7 @@ nav ul{
 
 .nav-link:hover{
     color: #F3DFBF;
+    transform: translateY(-0.25em);
 }
 
 .game-button-selector{ 
@@ -96,9 +97,9 @@ footer{
     padding: 1.25rem;
     text-align: center;
     border-top: solid 5px #FEFCFB;
-    position: absolute;
     bottom: 0;
     width: 100%;
+    height: 75px;
 }
 
 #page-info-container {
@@ -109,7 +110,7 @@ footer{
     width: 33%;
     margin: auto;
     margin-top: 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     color: #07004D;
     background-color: #42E2B8;
     padding: 10px 0;
