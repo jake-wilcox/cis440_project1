@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&family=Kanit&family=Nanum+Gothic:wght@400;700&family=Noto+Sans&family=Rajdhani&family=Roboto:wght@100&family=Source+Code+Pro&family=Space+Grotesk:wght@300&family=Ubuntu&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
