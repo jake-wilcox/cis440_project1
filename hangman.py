@@ -1,8 +1,8 @@
 import random
-from tkinter import N
  
 print('Welcome to Hang Man')
 print("Let's play!\n\n")
+print("INSTRUCTIONS: Guess the word using letters of the alphabet. You have 5 tries. Good luck!")
  
 def main():
     global count
