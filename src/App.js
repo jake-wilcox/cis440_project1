@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Login, Register, Settings, Snake, TicTacToe, Hangman } from './pages';
 
-import { Navbar, Footer } from '/src/components';
+import { Navbar, Footer } from './components';
 
 import { useStateContext } from './contexts/ContextProvider';
 
@@ -16,7 +16,7 @@ const App = () => {
     <div>
       <BrowserRouter>
         <div className='flex relative'>
-          <div className='fixed top-2'>
+          <div className='fixed top-2'> 
             <Navbar />
 
           </div>
@@ -24,9 +24,18 @@ const App = () => {
 
         <div>
           <Routes>
-            <Route />
-            <Route />
+            {/*Login Screen*/}
+            <Route path='/login' element={<Login />} />
 
+            <Route path='/register' element={<Register />} />
+
+            <Route path='/settings' element={<Settings />} />
+
+            <Route path='/snake' element={<Snake />} />
+
+            <Route path='/hangman' element={<Hangman />} />
+
+            <Route path='/tictacotoe' element={<TicTacToe />} />
           </Routes>
         </div>
       </BrowserRouter>
