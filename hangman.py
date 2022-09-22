@@ -13,8 +13,7 @@ def main():
     global display
     global chosen_word
 
-    # word_bank = ['ant', 'shirt', 'clock', 'tiger', 'phone', 'cloud', 'duck', 'lungs', 'plane', 'spine', 'apple', 'math', 'pod', 'note', 'zebra', 'sugar', 'snow', 'pens', 'photo']
-    word_bank = 'ant shirt clock tiger phone cloud duck lungs plane spine apple math pod note zebra sugar snow pens photo'.split()
+    word_bank = ['ant', 'shirt', 'clock', 'tiger', 'phone', 'cloud', 'duck', 'lungs', 'plane', 'spine', 'apple', 'math', 'pod', 'note', 'zebra', 'sugar', 'snow', 'pens', 'photo']
     word = random.choice(word_bank)
     length = len(word)
     count = 0
