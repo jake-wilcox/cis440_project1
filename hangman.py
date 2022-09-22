@@ -13,11 +13,11 @@ def main():
     global display
     global chosen_word
 
-    word_bank = ['ant', 'shirt', 'clock', 'tiger', 'phone', 'cloud', 'duck', 'lungs', 'plane', 'spine', 'apple', 'math', 'pod', 'note', 'zebra', 'sugar', 'snow', 'pens', 'photo']
+    word_bank = ['ant', 'shirt', 'clock', 'tiger', 'phone', 'cloud', 'duck', 'lungs', 'plane', 'spine', 'card', 'math', 'pod', 'note', 'zebra', 'sugar', 'snow', 'pens', 'photo']
     word = random.choice(word_bank)
     length = len(word)
     count = 0
-    display = '_ ' * length
+    display = '_' * length
     already_guessed = []
     chosen_word = word
     play_game = ""
