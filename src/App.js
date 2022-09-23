@@ -1,19 +1,9 @@
 import React, {useEffect} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// import { Login, Register, Settings, Snake, TicTacToe, Hangman } from './pages';
+import { Login, Register, Settings, Snake, TicTacToe, Hangman } from './pages';
 
-// import { Navbar, Footer } from './components';
-
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Hangman from './pages/Hangman';
-import Snake from './pages/Snake';
-import TicTacToe from './pages/TicTacToe';
-import Settings from './pages/Settings';
-
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import { Navbar, Footer } from './components';
 
 import { useStateContext } from './contexts/ContextProvider';
 
@@ -32,14 +22,21 @@ const App = () => {
           </div>
         </div>
 
+        <Navbar>
         <div>
-          <Routes>
-            {/*Login Screen*/}
+          {/* Navbar Login */}
             <Route path='/login' element={<Login />} />
 
             <Route path='/register' element={<Register />} />
 
             <Route path='/settings' element={<Settings />} />
+        </div>
+        </Navbar>
+
+
+
+        <div>
+          <Routes>
 
             <Route path='/snake' element={<Snake />} />
 
