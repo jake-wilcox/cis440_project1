@@ -20,11 +20,12 @@ def home():
 
 
 
-@app.route('/test', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def test():
     # GET method(inital load of the page) returns html with sub
     if request.method == "POST":
         print('called')
+
         cursor = mysql.connection.cursor()
         print('cursor created')
         cursor.execute('SELECT * FROM user')

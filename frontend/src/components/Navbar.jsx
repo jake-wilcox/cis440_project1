@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-
 import { useStateContext } from '../contexts/ContextProvider';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 
 const NavButton = ({ title, customFunc, color, dotColor }) => {
@@ -25,6 +26,8 @@ const popupLogin = () => {
         
     )
 }
+
+
 
 const Navbar = () => {
     const { setScreenSize, setIsClicked, isClicked, handleClick, screenSize} = useStateContext();
