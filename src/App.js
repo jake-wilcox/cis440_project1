@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Login, Register, Settings, Snake, TicTacToe, Hangman, Games } from './pages';
 
 import { Navbar, Footer } from './components';
 
-import { useStateContext } from './contexts/ContextProvider';
+// import { useStateContext } from './contexts/ContextProvider';
 
 
 import './App.css';
@@ -21,7 +21,8 @@ const App = () => {
 
         <div>
           <Routes>
-            {/* <Route path='/' element={<Games />} /> */}
+            <Route path='/' element={<Games />} />
+            
             <Route path='/login' element={<Login />} />
 
             <Route path='/register' element={<Register />} />
@@ -32,9 +33,11 @@ const App = () => {
 
             <Route path='/hangman' element={<Hangman />} />
 
-            <Route path='/tictacotoe' element={<TicTacToe />} />
+            <Route path='/tictactoe' element={<TicTacToe />} />
           </Routes>
         </div>
+
+        <Footer />
 
         
       </BrowserRouter>

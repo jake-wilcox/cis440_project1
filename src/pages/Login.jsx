@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { GiAbstract111 as Logo} from 'react-icons/gi';
-// import Logo from "../data/logo.svg";
 
 import axios from "axios";
 
@@ -80,7 +79,6 @@ const Login = () => {
         <FormContainer>
             <form onSubmit={(event) => handleSubmit(event)}>
                 <div>
-                    {/* <img src={Logo} alt="Logo"/> */}
                     <GiAbstract111 />
                     <h1>Kool Gamez</h1>
                 </div>
@@ -108,30 +106,28 @@ const Login = () => {
   )
 }
 
-const FormContainer = styled.div`
-height: 100vh;
-width: 100vw;
-display: flex;
-flex-direction: column;
-justify-content: center;
-gap: 1rem;
-align-items: center;
-background-color: #151145;
+export const FormContainer = styled.div`
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    background-color: #151145;
 
 .brand{
     display: flex;
     align-items: center;
     gap: 1rem;
     justify-content: center;
-    }
-    img {
-        height: 5rem;
-    }
+}
     h1{
         color: #F3DFBF;
         text-transform: uppercase;
-        font-size: 20px;
-
+        font-size: 25px;
+        text-align: center;
+        margin-top: 10px;
     }
     form{
         display: flex;
@@ -140,6 +136,7 @@ background-color: #151145;
         background-color: #0e0c1f;
         border-radius: 2rem;
         padding: 3rem 5rem;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 24px 28px, rgba(0, 0, 0, 0.22) 0px 15px 30px;
     }
     input{
         background-color: #131124;
@@ -179,16 +176,16 @@ background-color: #151145;
 `;
 
 const GiAbstract111 = styled(Logo)`
-      margin-bottom: 10px;
+      margin: auto;
       color: #F3DFBF;
       height: 90px;
       width: 90px;
       
 `
 
-const LoginLogo = styled.nav`
+// const LoginLogo = styled.nav`
   
-`
+// `
 
 
 export default Login

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { GiAbstract111 } from 'react-icons/gi';
+import { GiAbstract111 as Logo } from 'react-icons/gi';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import axios from 'axios';
@@ -89,8 +89,8 @@ const Register = () => {
             
             <form action="" onSubmit={(event) => handleSubmit(event)}>
                 <div className="brand">
-                    <GiAbstract111 />
-                    <h1>Kool Gamez</h1>
+                    <GiAbstract111/>
+                    <h1 className='text-3xl'>Kool Gamez</h1>
                 </div>
                 <input
                  type="text"
@@ -131,7 +131,7 @@ const Register = () => {
 }
 
 const FormContainer = styled.div`
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -146,11 +146,8 @@ const FormContainer = styled.div`
         gap: 1rem;
         justify-content: center;
         }
-        img {
-            height: 5rem;
-        }
         h1{
-            color: white;
+            color: #F3DFBF;;
             text-transform: uppercase;
         }
         form{
@@ -160,6 +157,7 @@ const FormContainer = styled.div`
             background-color: #0e0c1f;
             border-radius: 2rem;
             padding: 3rem 5rem;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 24px 28px, rgba(0, 0, 0, 0.22) 0px 15px 30px;
         }
         input{
             background-color: #131124;
@@ -195,7 +193,16 @@ const FormContainer = styled.div`
                 font-weight: bold;
             }
         }
+
     
     `;
+
+const GiAbstract111 = styled(Logo)`
+margin: auto;
+color: #F3DFBF;
+height: 90px;
+width: 90px;
+
+`
 
 export default Register

@@ -6,7 +6,6 @@ import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 
-
 const Navbar = () => {
     // const { setScreenSize, setIsClicked, isClicked, handleClick, screenSize} = useStateContext();
 
@@ -23,13 +22,13 @@ const Navbar = () => {
     
   return (
     <Nav>
-        <NavLogo to='/'>
+        <NavLogo to='/' className='gap-3'>
             <GiAbstract111 />
             <h1>Kool Gamez</h1>
         </NavLogo>
         
 
-        <div className='flex'>
+        <BtnContainer>
             <NavLink to='/register' >
                 <BsFillPersonPlusFill />
                 <span>Register</span>
@@ -39,23 +38,17 @@ const Navbar = () => {
                 <RiLoginBoxFill />
                 <span>Login</span>
             </NavLink>
-
-        </div>
-
-        
-        {/* <div className='flex'>
-            <NavButton title="Login" customFunc={() => handleClick('login')} icon={GrLogin} />
-
-            <NavButton title="Register" customFunc={() => handleClick('register')} icon={BsFillPersonPlusFill} />
-
-        </div> */}
-
-        
+        </BtnContainer>
 
     </Nav>
   )
 }
 
+
+const BtnContainer = styled.nav`
+    display: flex;
+    justify-content: space-between;
+`
 
 const NavLink = styled(Link)`
   color: #fff;
@@ -76,16 +69,14 @@ const NavLink = styled(Link)`
 
 export const Nav = styled.nav`
   background: #0e0c1f;
-  height: 80px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1500px) / 2);
   z-index: 10;
 `;
 
-
-
-const NavLogo = styled.nav`
+export const NavLogo = styled.nav`
     color: #F3DFBF;
     display: flex;
     align-items: center;
