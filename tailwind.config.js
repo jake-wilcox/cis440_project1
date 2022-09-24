@@ -7,7 +7,9 @@ module.exports = {
       'mintgreen': '#40d6ae',
       'darkpurple': '#0e0c1f',
       'white': '#ffffff',
-      'darkblue': '#151145'
+      'darkblue': '#151145',
+      'gradientblue': '#3378FF',
+      'gradientpurple': '#9442FE'
     },
     fontFamily: {
       display: ['Open Sans', 'sans-serif'],

@@ -88,7 +88,7 @@ const Register = () => {
     <>
         <FormContainer className='flex flex-col justify-center items-center gap-4'>
             
-            <form action="" onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20'>
+            <form action="" onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20 border-1 border-gold'>
                 <div>
                     <GiAbstract111/>
                     <h1 className='text-3xl text-center mt-3 uppercase'>Kool Gamez</h1>

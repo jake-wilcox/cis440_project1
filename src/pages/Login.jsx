@@ -78,7 +78,7 @@ const Login = () => {
   return (
     <>
         <FormContainer className='flex flex-col justify-center items-center gap-4 bg-darkblue'>
-            <form onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20 bg-darkpurple'>
+            <form onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20 bg-darkpurple border-1 border-gold'>
                 <div>
                     <GiAbstract111 />
                     <h1 className='text-3xl mt-3 text-center uppercase text-gold'>Kool Gamez</h1>
