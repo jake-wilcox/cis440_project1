@@ -86,12 +86,12 @@ const Register = () => {
         
   return (
     <>
-        <FormContainer>
+        <FormContainer className='flex flex-col justify-center items-center gap-4'>
             
-            <form action="" onSubmit={(event) => handleSubmit(event)}>
+            <form action="" onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20'>
                 <div>
                     <GiAbstract111/>
-                    <h1 className='text-3xl text-center mt-3'>Kool Gamez</h1>
+                    <h1 className='text-3xl text-center mt-3 uppercase'>Kool Gamez</h1>
                 </div>
 
                 <input
@@ -122,8 +122,8 @@ const Register = () => {
                     onChange={(e)=> handleChange(e)}
                 />
 
-                <button type="submit">Create User</button> 
-                <span>Already have an account? <Link to="/login">Login</Link></span>
+                <button type="submit" className='px-8 py-4 border-none font-bold cursor-pointer rounded-md font-base uppercase'>Create User</button> 
+                <span className='text-white uppercase'>Already have an account? <Link to="/login" className='font-bold'>Login</Link></span>
             </form>
         </FormContainer>
 
@@ -134,31 +134,14 @@ const Register = () => {
 
 const FormContainer = styled.div`
     height: 90vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    align-items: center;
+    width: 100vw; 
     background-color: #151145;
-    
-    .brand{
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        justify-content: center;
-        }
         h1{
-            color: #F3DFBF;;
-            text-transform: uppercase;
+            color: #F3DFBF;
         }
         form{
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
             background-color: #0e0c1f;
             border-radius: 2rem;
-            padding: 3rem 5rem;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 24px 28px, rgba(0, 0, 0, 0.22) 0px 15px 30px;
         }
         input{
@@ -173,26 +156,16 @@ const FormContainer = styled.div`
         }
         button{
             background-color: #40d6ae;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 0.4rem;
-            font-size: 1rem;
-            text-transform: uppercase;
+            color: #0e0c1f;
             transition: 0.5s ease-in-out;
             &:hover{
                 background-color: #01ae80;
             }
         }
         span{
-            color: white;
-            text-transform: uppercase;
             a{
                 color: #15ffc1;
                 text-decoration: none;
-                font-weight: bold;
             }
         }
 
