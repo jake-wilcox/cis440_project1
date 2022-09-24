@@ -1,50 +1,100 @@
-import React, { useEffect } from 'react';
-import { GrLogin } from 'react-icons/gr';
+import React from 'react';
+import { RiLoginBoxFill } from 'react-icons/ri';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
+import { GiAbstract111 } from 'react-icons/gi';
+import { NavLink as Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import { useStateContext } from '../contexts/ContextProvider';
 
-
-const NavButton = ({ title, customFunc, color, dotColor, icon }) => {
-    <button type='button' onClick={customFunc} style={{color}} className=''>
-
-        <span style={{background: dotColor}} className="absolute inline-flex rounded-lg h-2 w-2 right-2 top-2"/>
-
-        {title}
-
-    </button>
-}
 
 const Navbar = () => {
-    const { setScreenSize, setIsClicked, isClicked, handleClick, screenSize} = useStateContext();
+    // const { setScreenSize, setIsClicked, isClicked, handleClick, screenSize} = useStateContext();
 
-    useEffect(() => {
-        const handleResize = () => setScreenSize(window.innerWidth);
+    // useEffect(() => {
+    //     const handleResize = () => setScreenSize(window.innerWidth);
 
-        window.addEventListener('resize', handleResize);
+    //     window.addEventListener('resize', handleResize);
 
-        handleResize();
+    //     handleResize();
 
-        return () => window.removeEventListener('resize', handleResize);
-    }, [setScreenSize]);
+    //     return () => window.removeEventListener('resize', handleResize);
+    // }, [setScreenSize]);
 
     
   return (
-    <div className='flex justify-between p-2 md:mx-6 relative'>
-        <div>
-
-        </div>
+    <Nav>
+        <NavLogo to='/'>
+            <GiAbstract111 />
+            <h1>Kool Gamez</h1>
+        </NavLogo>
         
 
         <div className='flex'>
-            <NavButton title="Login" customFunc={() => handleClick('login')} icon={GrLogin} />
-            <NavButton title="Register" customFunc={() => handleClick('register')} icon={BsFillPersonPlusFill} />
+            <NavLink to='/register' >
+                <BsFillPersonPlusFill />
+                <span>Register</span>
+            </NavLink>
+
+            <NavLink to='/login'>
+                <RiLoginBoxFill />
+                <span>Login</span>
+            </NavLink>
+
         </div>
 
+        
+        {/* <div className='flex'>
+            <NavButton title="Login" customFunc={() => handleClick('login')} icon={GrLogin} />
 
+            <NavButton title="Register" customFunc={() => handleClick('register')} icon={BsFillPersonPlusFill} />
 
-    </div>
+        </div> */}
+
+        
+
+    </Nav>
   )
 }
+
+
+const NavLink = styled(Link)`
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  border: solid 1px #40d6ae;
+  border-radius: 10px;
+  margin: 0 10px;
+  height: 100%;
+  cursor: pointer;
+
+  &.active {
+    color: #42E2B8;
+  }
+`;
+
+export const Nav = styled.nav`
+  background: #0e0c1f;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem calc((100vw - 1500px) / 2);
+  z-index: 10;
+`;
+
+
+
+const NavLogo = styled.nav`
+    color: #F3DFBF;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: space-between;
+    margin: 0 10px;
+    font-size: 40px;
+    height: 100%;
+    cursor: pointer;
+`
 
 export default Navbar

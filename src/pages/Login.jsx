@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styled from "styled-components";
 import { ToastContainer, toast } from 'react-toastify';
-import Logo from "../data/logo.svg";
+import "react-toastify/dist/ReactToastify.css";
+import { GiAbstract111 as Logo} from 'react-icons/gi';
+// import Logo from "../data/logo.svg";
 
 import axios from "axios";
 
@@ -27,6 +29,8 @@ const Login = () => {
       navigate("/");
     }
   });
+  //end of login Func
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -50,9 +54,8 @@ const Login = () => {
 
     };
 
-  }; // end of handleSubmit 
-
-
+  }; 
+  // end of handleSubmit 
 
   const handleValidation = () => {
     const {password, email} = values;
@@ -77,8 +80,9 @@ const Login = () => {
         <FormContainer>
             <form onSubmit={(event) => handleSubmit(event)}>
                 <div>
-                    <img src={Logo} alt="Logo"/>
-                    <h1>Snappy</h1>
+                    {/* <img src={Logo} alt="Logo"/> */}
+                    <GiAbstract111 />
+                    <h1>Kool Gamez</h1>
                 </div>
                 <input
                  type="email"
@@ -112,7 +116,7 @@ flex-direction: column;
 justify-content: center;
 gap: 1rem;
 align-items: center;
-background-color: #131324;
+background-color: #151145;
 
 .brand{
     display: flex;
@@ -124,30 +128,31 @@ background-color: #131324;
         height: 5rem;
     }
     h1{
-        color: white;
+        color: #F3DFBF;
         text-transform: uppercase;
+        font-size: 20px;
+
     }
     form{
         display: flex;
         flex-direction: column;
         gap: 2rem;
-        background-color: #00000076;
+        background-color: #0e0c1f;
         border-radius: 2rem;
         padding: 3rem 5rem;
     }
     input{
-        background-color: transparent;
+        background-color: #131124;
         padding: 1rem;
-        border: 0.1rem solid #4e0eff;
         border-radius: 0.4rem;
         color: white;
         width: 100%;
         font-size: 1rem;
-        border: 0.1rem solid #997af0;
+        border: 0.1rem solid #40d6ae;
         outline: none;
     }
     button{
-        background-color: #997af0;
+        background-color: #40d6ae;
         color: white;
         padding: 1rem 2rem;
         border: none;
@@ -158,19 +163,32 @@ background-color: #131324;
         text-transform: uppercase;
         transition: 0.5s ease-in-out;
         &:hover{
-            background-color: #4e0eff;
+            background-color: #01ae80;
         }
     }
     span{
         color: white;
         text-transform: uppercase;
         a{
-            color: #4e0eff;
+            color: #15ffc1;
             text-decoration: none;
             font-weight: bold;
         }
     }
 
 `;
+
+const GiAbstract111 = styled(Logo)`
+      margin-bottom: 10px;
+      color: #F3DFBF;
+      height: 90px;
+      width: 90px;
+      
+`
+
+const LoginLogo = styled.nav`
+  
+`
+
 
 export default Login

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Login, Register, Settings, Snake, TicTacToe, Hangman } from './pages';
+import { Login, Register, Settings, Snake, TicTacToe, Hangman, Games } from './pages';
 
 import { Navbar, Footer } from './components';
 
@@ -15,28 +15,18 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <div className='flex relative'>
-          <div className='fixed top-2'> 
-            <Navbar />
+  
 
-          </div>
-        </div>
+        <Navbar />
 
-        <Navbar>
         <div>
-          {/* Navbar Login */}
+          <Routes>
+            {/* <Route path='/' element={<Games />} /> */}
             <Route path='/login' element={<Login />} />
 
             <Route path='/register' element={<Register />} />
 
             <Route path='/settings' element={<Settings />} />
-        </div>
-        </Navbar>
-
-
-
-        <div>
-          <Routes>
 
             <Route path='/snake' element={<Snake />} />
 
@@ -45,6 +35,8 @@ const App = () => {
             <Route path='/tictacotoe' element={<TicTacToe />} />
           </Routes>
         </div>
+
+        
       </BrowserRouter>
     </div>
   )
