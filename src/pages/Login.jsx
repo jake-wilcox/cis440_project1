@@ -77,11 +77,11 @@ const Login = () => {
 
   return (
     <>
-        <FormContainer className='flex flex-col justify-center items-center gap-4'>
-            <form onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20'>
+        <FormContainer className='flex flex-col justify-center items-center gap-4 bg-darkblue'>
+            <form onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20 bg-darkpurple'>
                 <div>
                     <GiAbstract111 />
-                    <h1 className='text-3xl mt-3 text-center uppercase'>Kool Gamez</h1>
+                    <h1 className='text-3xl mt-3 text-center uppercase text-gold'>Kool Gamez</h1>
                 </div>
                 
                 <input
@@ -98,7 +98,7 @@ const Login = () => {
                     onChange={(e)=> handleChange(e)}
                 />
 
-                <button type="submit" className='px-8 py-4 border-none font-bold cursor-pointer rounded-md font-base uppercase'>Login</button> 
+                <button type="submit" className='px-8 py-4 border-none font-bold cursor-pointer rounded-md font-base uppercase bg-mintgreen text-darkpurple'>Login</button> 
                 <span className='text-white uppercase'>Don't have an account? <Link to="/register" className='font-bold'>Register Now</Link></span>
             </form>
         </FormContainer>
@@ -111,12 +111,7 @@ const Login = () => {
 export const FormContainer = styled.div`
     height: 90vh;
     width: 100vw;
-    background-color: #151145;
-    h1{
-        color: #F3DFBF;
-    }
     form{
-        background-color: #0e0c1f;
         border-radius: 2rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 24px 28px, rgba(0, 0, 0, 0.22) 0px 15px 30px;
     }
@@ -131,8 +126,6 @@ export const FormContainer = styled.div`
         outline: none;
     }
     button{
-        background-color: #40d6ae;
-        color: #0e0c1f;
         transition: 0.5s ease-in-out;
         &:hover{
             background-color: #01ae80;
@@ -155,9 +148,6 @@ const GiAbstract111 = styled(Logo)`
       
 `
 
-// const LoginLogo = styled.nav`
-  
-// `
 
 
 export default Login

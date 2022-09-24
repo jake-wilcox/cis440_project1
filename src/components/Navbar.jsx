@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { RiLoginBoxFill } from 'react-icons/ri';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { GiAbstract111 } from 'react-icons/gi';
-import { NavLink as Link } from 'react-router-dom';
+import { NavLink as Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+// import { useStateContext } from '../contexts/ContextProvider';
+
 
 
 const Navbar = () => {
+
+    // const location = useLocation();
+    // const path = location.pathname;
+    
+    // const [ display, setDisplay ] = useState(
+    //   path === '/login' || path === '/register' ? false : true
+    // );
+
+
     // const { setScreenSize, setIsClicked, isClicked, handleClick, screenSize} = useStateContext();
 
     // useEffect(() => {
@@ -21,26 +32,34 @@ const Navbar = () => {
 
     
   return (
-    <Nav>
-        <NavLogo to='/' className='gap-3'>
-            <GiAbstract111 />
-            <h1>Kool Gamez</h1>
-        </NavLogo>
-        
+    // <>
+    // {display && (
 
-        <BtnContainer>
-            <NavLink to='/register' >
-                <BsFillPersonPlusFill />
-                <span>Register</span>
-            </NavLink>
 
-            <NavLink to='/login'>
-                <RiLoginBoxFill />
-                <span>Login</span>
-            </NavLink>
-        </BtnContainer>
+      <Nav className='bg-darkpurple flex'>
+          <NavLogo to='/' className='gap-3'>
+              <GiAbstract111 />
+              <h1>Kool Gamez</h1>
+          </NavLogo>
+          
 
-    </Nav>
+          <BtnContainer>
+              <NavLink to='/register' >
+                  <BsFillPersonPlusFill />
+                  <span>Register</span>
+              </NavLink>
+
+              <NavLink to='/login'>
+                  <RiLoginBoxFill />
+                  <span>Login</span>
+              </NavLink>
+          </BtnContainer>
+
+      </Nav>
+
+
+    // )}
+    // </>
   )
 }
 
@@ -68,9 +87,7 @@ const NavLink = styled(Link)`
 `;
 
 export const Nav = styled.nav`
-  background: #0e0c1f;
   height: 90px;
-  display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1500px) / 2);
   z-index: 10;

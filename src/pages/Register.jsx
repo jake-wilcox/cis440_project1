@@ -122,7 +122,7 @@ const Register = () => {
                     onChange={(e)=> handleChange(e)}
                 />
 
-                <button type="submit" className='px-8 py-4 border-none font-bold cursor-pointer rounded-md font-base uppercase'>Create User</button> 
+                <button type="submit" className='px-8 py-4 border-none font-bold cursor-pointer rounded-md font-base uppercase bg-mintgreen text-darkpurple'>Create User</button> 
                 <span className='text-white uppercase'>Already have an account? <Link to="/login" className='font-bold'>Login</Link></span>
             </form>
         </FormContainer>
@@ -155,8 +155,6 @@ const FormContainer = styled.div`
             outline: none;
         }
         button{
-            background-color: #40d6ae;
-            color: #0e0c1f;
             transition: 0.5s ease-in-out;
             &:hover{
                 background-color: #01ae80;
