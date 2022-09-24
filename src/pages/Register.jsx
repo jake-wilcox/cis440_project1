@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { GiAbstract111 as Logo } from 'react-icons/gi';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+
 import axios from 'axios';
 
 
@@ -88,10 +89,11 @@ const Register = () => {
         <FormContainer>
             
             <form action="" onSubmit={(event) => handleSubmit(event)}>
-                <div className="brand">
+                <div>
                     <GiAbstract111/>
-                    <h1 className='text-3xl'>Kool Gamez</h1>
+                    <h1 className='text-3xl text-center mt-3'>Kool Gamez</h1>
                 </div>
+
                 <input
                  type="text"
                   placeholder="Username"

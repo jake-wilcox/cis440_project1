@@ -8,7 +8,7 @@ import { GiAbstract111 as Logo} from 'react-icons/gi';
 import axios from "axios";
 
 const Login = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const toastOptions = { 
     positions: "bottom-right",
@@ -46,10 +46,11 @@ const Login = () => {
       }
 
       if(data.status === true){
-        localStorage.setItem("cis440_project1-User")
-      }
+        localStorage.setItem("cis440_project1-User", JSON.stringify(data.user));
+      
 
       navigate("/");
+      }
 
     };
 
@@ -68,7 +69,7 @@ const Login = () => {
     }
     return true;
 
-  } //end of handleValidation 
+  }; //end of handleValidation 
 
   const handleChange = (event) => {
     setValues({...values, [event.target.name]:event.target.value});
@@ -80,8 +81,9 @@ const Login = () => {
             <form onSubmit={(event) => handleSubmit(event)}>
                 <div>
                     <GiAbstract111 />
-                    <h1>Kool Gamez</h1>
+                    <h1 className='text-3xl mt-3 text-center uppercase'>Kool Gamez</h1>
                 </div>
+                
                 <input
                  type="email"
                   placeholder="Email"
@@ -124,10 +126,6 @@ export const FormContainer = styled.div`
 }
     h1{
         color: #F3DFBF;
-        text-transform: uppercase;
-        font-size: 25px;
-        text-align: center;
-        margin-top: 10px;
     }
     form{
         display: flex;

@@ -6,7 +6,7 @@ import { HangmanImg, SnakeImg, TicTacToeImg } from '../data';
 const Games = () => {
 
   return (
-    <div className='flex mt-32 justify-center py-10'>
+    <div className='flex justify-center py-10 mt-32'>
       <GameTile image={HangmanImg} title='Hangman' route='./hangman' />
 
       <GameTile image={SnakeImg} title='Snake' route='./snake' />
