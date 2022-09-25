@@ -133,7 +133,7 @@ const Register = () => {
 }
 
 const FormContainer = styled.div`
-    height: 90vh;
+    height: 100vh;
     width: 100vw; 
     background-color: #151145;
         h1{

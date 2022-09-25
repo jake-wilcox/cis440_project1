@@ -1,8 +1,11 @@
 import React from 'react'
+import { Navbar } from '../components'
 
 const Snake = () => {
   return (
-    <div>Snake</div>
+    <>
+      <Navbar />
+    </>
   )
 }
 

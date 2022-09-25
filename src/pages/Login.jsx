@@ -77,7 +77,8 @@ const Login = () => {
 
   return (
     <>
-        <FormContainer className='flex flex-col justify-center items-center gap-4 bg-darkblue'>
+        <FormContainer className='flex flex-col justify-center items-center gap-4 bg-darkblue w-screen h-screen'>
+
             <form onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20 bg-darkpurple border-1 border-gold'>
                 <div>
                     <GiAbstract111 />
@@ -109,8 +110,6 @@ const Login = () => {
 }
 
 export const FormContainer = styled.div`
-    height: 90vh;
-    width: 100vw;
     form{
         border-radius: 2rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 24px 28px, rgba(0, 0, 0, 0.22) 0px 15px 30px;

@@ -1,8 +1,11 @@
 import React from 'react'
+import { Navbar } from '../components'
 
 const TicTacToe = () => {
   return (
-    <div>TicTacToe</div>
+    <>
+      <Navbar />
+    </>
   )
 }
 
