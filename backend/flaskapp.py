@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from flask_mysqldb import MySQL
+import MySQLdb.cursors
 
 app = Flask(__name__)
 
@@ -9,7 +10,6 @@ app.config['MYSQL_HOST'] = '107.180.1.16'
 app.config['MYSQL_USER'] = '440fall20225'
 app.config['MYSQL_PASSWORD'] = '440fall20225'
 app.config['MYSQL_DB'] = '440fall20225'
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
 
@@ -24,12 +24,45 @@ def home():
 def test():
     # GET method(inital load of the page) returns html with sub
     if request.method == "POST":
-        print('called')
+        print('inside login post method')
 
-        cursor = mysql.connection.cursor()
+        try:
+            request_data = request.get_json()
+            print(request_data['email'])
+        except:
+            print('failed to get request data')
+            return {'logged_in': False}
+        
+        try:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            print('cursor created')
+            cursor.execute(f"SELECT * FROM user WHERE email = '{request_data['email']}'")
+            account = cursor.fetchone()
+            print(account)
+        except:
+            print('failed to get data from database')
+            return {'logged_in': False}
+
+
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         print('cursor created')
-        cursor.execute('SELECT * FROM user')
-        account = cursor.fetchall()
+        cursor.execute(f"SELECT * FROM user WHERE email = '{request_data['email']}'")
+        account = cursor.fetchone()
+        print(account)
+
+        if account == None:
+            print('no matching user')
+        elif account['password'] != request_data['password']:
+            print('password was wrong')
+        else:
+            print('we have a match')
+            print(account)
+            print(request_data)
+        
+
+
+        
+
         return f'{account}'
     else:
         return html_string

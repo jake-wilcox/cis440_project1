@@ -21,6 +21,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "start_backend": "cd ../backend && source backend_venv/bin/activate && python flaskapp.py",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

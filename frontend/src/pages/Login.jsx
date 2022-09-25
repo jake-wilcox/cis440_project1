@@ -32,10 +32,13 @@ const Login = () => {
   
 
   const handleSubmit = async (event) => {
+    console.log('handeling submit')
     event.preventDefault();
 
     if(handleValidation()){
       const { password, email } = values;
+      console.log(values)
+      
       const { data} = await axios.post('./login', {  // Check for login route './login'
         email, 
         password,
