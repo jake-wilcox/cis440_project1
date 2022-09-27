@@ -5,6 +5,7 @@ const Snake = () => {
   return (
     <>
       <Navbar />
+      snake
     </>
   )
 }

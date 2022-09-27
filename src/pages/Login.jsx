@@ -11,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const toastOptions = { 
-    positions: "bottom-right",
+    position: "bottom-right",
     autoClose: 8000,
     pauseOnHover: true,
     draggable: true,

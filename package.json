@@ -15,8 +15,10 @@
     "react-router-dom": "^6.4.0",
     "react-scripts": "^5.0.1",
     "react-toastify": "^9.0.8",
+    "react-vanilla-tilt": "^1.0.0",
     "styled-components": "^5.3.5",
     "tailwindcss": "^3.1.8",
+    "tilt.js": "^1.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -47,5 +49,5 @@
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.6",
     "tailwindcss": "^3.1.8"
-}
+  }
 }

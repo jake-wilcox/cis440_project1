@@ -2,15 +2,16 @@ import React from 'react'
 import { GameTile } from '../components';
 import { HangmanImg, SnakeImg, TicTacToeImg } from '../data';
 import styled from 'styled-components';
-import { Navbar } from '../components'
+import { Navbar, Footer } from '../components'
 
 const Games = () => {
 
   return (
     <>
-      <Navbar />
-      <div className='flex justify-center w-screen
-      h-screen bg-darkblue pt-40'>
+      <Navbar className='fixed'/>
+
+      <div className='flex justify-center w-full
+      h-full bg-darkblue pt-40 pb-64'>
 
         <GameTile image={HangmanImg} title='Hangman' route='./hangman'/>
 
@@ -18,6 +19,8 @@ const Games = () => {
 
         <GameTile image={TicTacToeImg} title='TicTacToe' route='./tictactoe' />
       </div>
+
+      <Footer />
     </>
   )
 }

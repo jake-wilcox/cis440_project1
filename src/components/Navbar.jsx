@@ -32,19 +32,20 @@ const Navbar = () => {
 
     
   return (
-    // <>
-    // {display && (
-
-
-      <Nav className='bg-darkpurple flex'>
-          <NavLogo to='/' className='gap-3'>
+      <Nav className='bg-darkpurple flex border-b-1 border-gold'>
+          <NavLogo className='gap-3'>
               <GiAbstract111 />
               <h1>Kool Gamez</h1>
           </NavLogo>
+
+
+          <LinkContainer>
+          
+          </LinkContainer>
           
 
-          <BtnContainer>
-              <NavLink to='/register' >
+          <BtnContainer className='flex gap-3'>
+              <NavLink to='/register'>
                   <BsFillPersonPlusFill />
                   <span>Register</span>
               </NavLink>
@@ -57,19 +58,20 @@ const Navbar = () => {
 
       </Nav>
 
-
-    // )}
-    // </>
   )
 }
 
 
-const BtnContainer = styled.nav`
+export const BtnContainer = styled.nav`
     display: flex;
     justify-content: space-between;
 `
 
-const NavLink = styled(Link)`
+export const LinkContainer = styled.nav`
+    
+`
+
+export const NavLink = styled(Link)`
   color: #fff;
   display: flex;
   align-items: center;
@@ -79,6 +81,7 @@ const NavLink = styled(Link)`
   border-radius: 10px;
   margin: 0 10px;
   height: 100%;
+  gap: 0.5rem;
   cursor: pointer;
 
   &.active {

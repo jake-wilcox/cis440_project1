@@ -5,6 +5,7 @@ const Hangman = () => {
   return (
     <>
       <Navbar />
+      hangman
     </>
   )
 }

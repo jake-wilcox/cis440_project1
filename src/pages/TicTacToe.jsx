@@ -5,6 +5,7 @@ const TicTacToe = () => {
   return (
     <>
       <Navbar />
+      tic tac toe
     </>
   )
 }
