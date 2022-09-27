@@ -20,7 +20,7 @@ def home():
 
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def test():
     # GET method(inital load of the page) returns html with sub
     if request.method == "POST":
@@ -33,15 +33,21 @@ def test():
             print('failed to get request data')
             return {'logged_in': False}
         
-        try:
-            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            print('cursor created')
-            cursor.execute(f"SELECT * FROM user WHERE email = '{request_data['email']}'")
-            account = cursor.fetchone()
-            print(account)
-        except:
-            print('failed to get data from database')
-            return {'logged_in': False}
+        # try:
+        #     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        #     print('cursor created')
+        #     cursor.execute(f"SELECT * FROM user WHERE email = '{request_data['email']}'")
+        #     account = cursor.fetchone()
+        #     print(account)
+        # except:
+        #     print('failed to get data from database')
+        #     return {'logged_in': False}
+
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        print('cursor created')
+        cursor.execute(f"SELECT * FROM user WHERE email = '{request_data['email']}'")
+        account = cursor.fetchone()
+        print(account)
 
 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -52,12 +58,19 @@ def test():
 
         if account == None:
             print('no matching user')
+            return {'logged_in': False}
+
+            
         elif account['password'] != request_data['password']:
             print('password was wrong')
+            return {'logged_in': False}
+
         else:
             print('we have a match')
+            account['logged_in'] = True
             print(account)
             print(request_data)
+            return account
         
 
 

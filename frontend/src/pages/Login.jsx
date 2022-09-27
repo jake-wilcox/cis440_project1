@@ -7,6 +7,9 @@ import { GiAbstract111 as Logo} from 'react-icons/gi';
 
 import axios from "axios";
 
+
+const loggedInContext = React.createContext(false)
+
 const Login = () => {
   const navigate = useNavigate;
 
@@ -39,9 +42,9 @@ const Login = () => {
       const { password, email } = values;
       console.log(values)
       
-      const { data} = await axios.post('./login', {  // Check for login route './login'
-        email, 
-        password,
+      const { data } = await axios.post('./login', {  // Check for login route './login'
+        email,
+        password
       });
 
       if(data.status === false){
@@ -50,9 +53,20 @@ const Login = () => {
 
       if(data.status === true){
         localStorage.setItem("cis440_project1-User")
+      
       }
+      
+      console.log(data['logged_in']);
+      if(data['logged_in'] === true){
+        console.log('Logged in');
+        
+      }
+      else{
+        console.log('login Failed')
+      }
+     
 
-      navigate("/");
+      
 
     };
 
