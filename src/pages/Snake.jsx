@@ -1,11 +1,18 @@
-import React from 'react'
-import { Navbar } from '../components'
+import React, { useState } from 'react'
+import { Navbar, SnakeComponent } from '../components'
+
 
 const Snake = () => {
+
+
   return (
     <>
       <Navbar />
-      snake
+
+      <div className='relative'> 
+        {/* <SnakeComponent /> */}
+      </div>
+
     </>
   )
 }
