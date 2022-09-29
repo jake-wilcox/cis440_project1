@@ -1,0 +1,10 @@
+body {
+    background-color: #e3d5ca;
+    color: black;
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}

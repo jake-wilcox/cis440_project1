@@ -5,7 +5,7 @@ import Hangman from './components/hangman';
 
 function App() {
   return (
-    <div className = "container"> 
+    <div className = "App"> 
       <Hangman />
      </div> 
 
@@ -26,6 +26,6 @@ function App() {
       <button className = "btn mt-4 btn-reset btn-md">Reset</button> */
      
   );
-}
+};
 
 export default App;
