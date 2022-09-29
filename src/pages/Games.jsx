@@ -1,7 +1,6 @@
 import React from 'react'
 import { GameTile } from '../components';
 import { HangmanImg, SnakeImg, TicTacToeImg } from '../data';
-import styled from 'styled-components';
 import { Navbar, Footer } from '../components'
 
 const Games = () => {

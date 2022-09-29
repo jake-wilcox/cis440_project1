@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Login, Register, Settings, Snake, TicTacToe, Hangman, Games, Leaderboard } from './pages';
+import { Login, Register, Snake, TicTacToe, Hangman, Games, Leaderboard } from './pages';
 
 import { Navbar, Footer } from './components';
 
@@ -24,8 +24,6 @@ const App = () => {
             <Route path='/register' element={<Register />} />
 
             <Route path='/' element={<Games />} />
-
-            <Route path='/settings' element={<Settings />} />
 
             <Route path='/leaderboard' element={<Leaderboard /> } />
 

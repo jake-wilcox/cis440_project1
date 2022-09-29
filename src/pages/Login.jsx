@@ -36,7 +36,7 @@ const Login = () => {
 
     if(handleValidation()){
       const { password, email } = values;
-      const { data} = await axios.post('./login', {  // Check for login route './login'
+      const { data } = await axios.post('./login', {  // Check for login route './login'
         email, 
         password,
       });

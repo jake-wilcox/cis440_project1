@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { RiLoginBoxFill } from 'react-icons/ri';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { GiAbstract111 } from 'react-icons/gi';
+import { HiHome } from 'react-icons/hi';
+import { BiLogOut } from 'react-icons/bi';
 import { NavLink as Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 // import { useStateContext } from '../contexts/ContextProvider';
@@ -32,11 +34,13 @@ const Navbar = () => {
 
     
   return (
-      <Nav className='bg-darkpurple flex border-b-1 border-gold'>
+      <Nav className='bg-darkpurple flex border-b-2 border-gold'>
+        <Link to='/'>
           <NavLogo className='gap-3'>
               <GiAbstract111 />
               <h1>Kool Gamez</h1>
           </NavLogo>
+        </Link>
 
 
           <LinkContainer>
@@ -77,16 +81,18 @@ export const NavLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
-  border: solid 1px #40d6ae;
+  border: solid 2px #40d6ae;
   border-radius: 10px;
   margin: 0 10px;
   height: 100%;
   gap: 0.5rem;
   cursor: pointer;
 
-  &.active {
-    color: #42E2B8;
-  }
+  transition: 0.3s ease-in-out;
+        &:hover{
+            background-color: #40d6ae;
+            color: #0e0c1f;
+        }
 `;
 
 export const Nav = styled.nav`
