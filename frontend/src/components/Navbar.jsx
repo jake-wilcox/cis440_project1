@@ -19,6 +19,39 @@ const Navbar = () => {
     //     return () => window.removeEventListener('resize', handleResize);
     // }, [setScreenSize]);
 
+    if(localStorage.length == 0){
+      const Buttons = () => {
+        <BtnContainer>
+        <NavLink to='/register' >
+            <BsFillPersonPlusFill />
+            <span>Register</span>
+        </NavLink>
+
+        <NavLink to='/login'>
+            <RiLoginBoxFill />
+            <span>Login</span>
+        </NavLink>
+      </BtnContainer>
+
+      }
+    }else{
+           const Buttons = () => {
+        <BtnContainer>
+        <NavLink to='/register' >
+            <BsFillPersonPlusFill />
+            <span>Register</span>
+        </NavLink>
+
+        <NavLink to='/login'>
+            <RiLoginBoxFill />
+            <span>Login</span>
+        </NavLink>
+      </BtnContainer>
+
+      }
+
+    }
+
     
   return (
     <Nav>

@@ -25,11 +25,12 @@ const Register = () => {
           confirmedPass: ""
         })
 
-        useEffect(() => {
-            if(localStorage.getItem('cis440_project1-User')){
-                navigate("/");
-            }
-        });
+        // not needed if we render new buttons on login
+        // useEffect(() => {
+        //     if(localStorage.getItem('cis440_project1-User')){
+        //         navigate("/");
+        //     }
+        // });
 
         const handleSubmit = async(event) => {
           event.preventDefault();
@@ -40,17 +41,40 @@ const Register = () => {
                 username,
                 email,
                 password
-                });
+                }).catch(function (error) {
+                    if (error.response) {
+                      // The request was made and the server responded with a status code
+                      // that falls out of the range of 2xx
+                      toast.error("Somethings wrong on our end...\ntry again later", toastOptions)
+                      console.log(error.response.data);
+                      console.log(error.response.status);
+                      console.log(error.response.headers);
+                    } else if (error.request) {
+                      // The request was made but no response was received
+                      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                      // http.ClientRequest in node.js
+                      toast.error("Somethings wrong on our end...\ntry again later", toastOptions)
+                      console.log(error.request);
+                    } else {
+                      // Something happened in setting up the request that triggered an Error
+                      console.log('Error', error.message);
+                    }
+                    console.log(error.config);
+                  });
 
-          if(data.status === false){
-            toast.error(data.msg, toastOptions);
+            if(data['status'] == 2){
+            toast.error('Somethings wrong on our end...\ntry again later', toastOptions);
             }
+            if(data['status'] == 1){
+                toast.error('Email already taken\nuse a different email or log in', toastOptions);
+                }
+            if(data['status'] == 0){
+                console.log('account created')
+                localStorage.setItem("user_info", JSON.stringify(data))
+                // navigate user to log in page or home page
+                navigate("/")
+                }
 
-          if(data.status === true){
-            localStorage.setItem('chat-Application-user', JSON.stringify(data.user));
-
-            navigate("/");
-            }
          }
       }
 
