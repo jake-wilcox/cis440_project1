@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Login, Register, Settings, Snake, TicTacToe, Hangman, Games } from './pages';
+import { Login, Register, Settings, Snake, TicTacToe, Hangman, Games, Leaderboard } from './pages';
 
 import { Navbar, Footer } from './components';
 
@@ -34,6 +34,11 @@ const App = () => {
             <Route path='/hangman' element={<Hangman />} />
 
             <Route path='/tictactoe' element={<TicTacToe />} />
+
+            <Route path='/leaderboard' element={<Leaderboard />} />
+
+
+
           </Routes>
         </div>
 
