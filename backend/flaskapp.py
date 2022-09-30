@@ -4,8 +4,6 @@ import MySQLdb.cursors
 
 app = Flask(__name__)
 
-
-
 app.config['MYSQL_HOST'] = '107.180.1.16'
 app.config['MYSQL_USER'] = '440fall20225'
 app.config['MYSQL_PASSWORD'] = '440fall20225'
@@ -126,13 +124,6 @@ def update():
     cursor.execute(f"UPDATE user SET totalScore = {new_score} WHERE id = {request_data['id']}")
     mysql.connection.commit()
     print('Score Updated')
-
-
-
-
-    
-
-
 
 
 

@@ -11,7 +11,7 @@ import axios from "axios";
 const loggedInContext = React.createContext(false)
 
 const Login = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const toastOptions = { 
     positions: "bottom-right",
@@ -86,7 +86,7 @@ const Login = () => {
       }
       
 
-     
+    
 
       
 
