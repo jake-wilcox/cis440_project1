@@ -6,6 +6,7 @@ import { HiHome } from 'react-icons/hi';
 import { BiLogOut } from 'react-icons/bi';
 import { NavLink as Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+
 // import { useStateContext } from '../contexts/ContextProvider';
 
 
@@ -34,7 +35,7 @@ const Navbar = () => {
 
     
   return (
-      <Nav className='bg-darkpurple flex border-b-2 border-gold'>
+      <Nav className='bg-darkpurple flex border-b-2 border-gold w-screen'>
         <Link to='/'>
           <NavLogo className='gap-3'>
               <GiAbstract111 />
@@ -44,11 +45,12 @@ const Navbar = () => {
 
 
           <LinkContainer>
+            {/* <HiHome className='text-gold' /> */}
           
           </LinkContainer>
           
 
-          <BtnContainer className='flex gap-3'>
+          <BtnContainer className='flex gap-3 items-center'>
               <NavLink to='/register'>
                   <BsFillPersonPlusFill />
                   <span>Register</span>
@@ -82,9 +84,9 @@ export const NavLink = styled(Link)`
   text-decoration: none;
   padding: 0 1rem;
   border: solid 2px #40d6ae;
-  border-radius: 10px;
+  border-radius: 15px;
   margin: 0 10px;
-  height: 100%;
+  height: 60px;
   gap: 0.5rem;
   cursor: pointer;
 

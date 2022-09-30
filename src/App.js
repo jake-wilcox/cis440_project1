@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Login, Register, Snake, TicTacToe, Hangman, Games, Leaderboard } from './pages';
+import { Login, Register, Snake, TicTacToe, Hangman, Games, Leaderboard, Hangmanx } from './pages';
 
-import { Navbar, Footer } from './components';
 
 // import { useStateContext } from './contexts/ContextProvider';
 
@@ -35,8 +34,6 @@ const App = () => {
 
           </Routes>
         </div>
-
-        {/* <Footer /> */}
 
         
       </BrowserRouter>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import styled from "styled-components";
 import { ToastContainer, toast } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
+// import { Navbar } from '../components';
 import { GiAbstract111 as Logo} from 'react-icons/gi';
+import styled from "styled-components";
+import "react-toastify/dist/ReactToastify.css";
+
 
 import axios from "axios";
 
@@ -36,7 +38,7 @@ const Login = () => {
 
     if(handleValidation()){
       const { password, email } = values;
-      const { data } = await axios.post('./login', {  // Check for login route './login'
+      const { data } = await axios.post('./login', {  // Check for login route './login' object 
         email, 
         password,
       });
@@ -77,6 +79,7 @@ const Login = () => {
 
   return (
     <>
+
         <FormContainer className='flex flex-col justify-center items-center gap-4 bg-darkblue w-screen h-screen'>
 
             <form onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20 bg-darkpurple border-1 border-gold'>
