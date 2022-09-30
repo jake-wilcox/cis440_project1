@@ -1,16 +1,169 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { useEffect, useState } from "react";
 
-
-class TicTacToe extends Component{
-
-
-    return () {
-        <div className = "container">
-            <h1 className = "text-center mt-4">Tic Tac Toe</h1>
-            <p className = "text-center mt-4">Instructions: Player X begins. You can select where you'd like to place your piece by clicking on the square. Three in a row wins. Good luck!</p>
-        </div>
-
-    };
+function timer(seconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while(currentDate - date < seconds);
 };
 
-export default TicTacToe;
+const players = {
+    CPU: {
+        SYM: "O",
+        NAME: "CPU",
+    },
+    HUMAN: {
+        SYM: "O",
+        NAME: "You"
+    },
+};
+
+export default function TicTacToe() {
+    // const board = useState(Arrat(9).fill(""));
+    const [board, setBoard] = useState([
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+    ]);
+
+    const [isCPUnext, setIsCPUNext] = useState(false);
+    const [winner, setWinner] = useState(null);
+
+    // allows players to play when clicking on it and checks if the game is over
+    function playFunction(arrayIndex, index) {
+        if (isCPUnext) return;
+        if (winner) return;
+        board[arrayIndex][index] = players?.HUMAN?.SYM
+        setBoard((board) => [...board]);
+        checkWinner();
+        setIsCPUNext(true);
+    }
+
+    // checks if the game is over; if not, it'll check if it is the CPU's turn
+    useEffect(() => {
+        if (winner) return;
+        if (isCPUNext) {
+            cpuPlay();
+        };
+    }, [isCPUNext]);
+
+    // checks if game is over, if not, it'll call for the CPU's move
+    function cpuPlay() {
+        if (winner) return; 
+        timer(10);
+
+        const cpuMove = cpuTurn(); 
+
+        board[cpuMove.arrayIndex][cpuMove.index] = players.CPU?.SYM;
+
+        setBoard((board) => [...board]);
+        checkWinner(); 
+        setIsCPUNext(false);
+    }
+
+    //CPU turn
+    function cpuTurn() {
+        const emptyIndex = [];
+        board.forEach((row, arrayIndex) => {
+            row.forEach((cell, index) => {
+                if (cell === "") {
+                    emptyIndex.push({arrayIndex, index});
+                };
+            });
+        });
+
+        const randomIndex = Math.floor(Math.random() * emptyIndex.length);
+        return emptyIndex[randomIndex];
+    }
+
+    //checks for the winner
+    function checkWinner() {
+
+        // checks columns 
+        for (let i = 0; i < 3; i++) {
+            const column = board.map((row) => row[i]);
+            if (column.every((cell) => cell  === players?.CPU?.SYM)) {
+                setWinner(players?.CPU?.NAME);
+                return;
+            } else if (column.every((cell) => cell === players?.HUMAN?.SYM)) {
+                setWinner(players?.HUMAN?.NAME);
+                return;
+            };
+        };
+
+        // checks rows
+        for (let index = 0; index <board.length; index++) {
+            const row = board[index];
+            
+            if (row.every((cell) => cell === players?.CPU.SYM)) {
+                setWinner(players?.CPU?.SYM); 
+                return;
+            } else if (row.every((cell) => cell === players?.HUMAN?.SYM)) {
+                setWinner(players?.HUMAN?.NAME);
+                return;
+            };
+        };
+
+        // checks diagonals 
+        const diagonal1 = [board[0][0], board[1][1], board[2][2]];
+        const diagonal2 = [board[0][2], board[1][1], board[2][0]];
+
+        if (diagonal1.every((cell) => cell === players?.HUMAN?.SYM)) {
+            setWinner(players?.HUMAN?.NAME);
+            return;
+        } else if (diagonal1.every((cell) => cell === players?.CPU?.SYM)) {
+            setWinner(players?.CPU?.NAME);
+            return;
+        } else if (diagonal2.every((cell) => cell === players?.HUMAN?.SYM)) {
+            setWinner(players?.HUMAN?.NAME);
+            return;
+        } else if (diagonal2.every((cell) => cell === players?.CPU?.SYM)) {
+            setWinner(players?.CPU?.NAME);
+            return;
+        } else if (board.flat().every((cell) => cell !== "")) {
+            setWinner("draw")
+            return;
+        } else {
+            setWinner(null);
+            return;
+        }
+
+    };
+
+    function displayWinner() {
+        if (winner === "draw") {
+            return "It's a draw!";
+        } else if (winner) {
+            return `${winner} won!`
+        };
+    };
+
+    function displayTurn() {
+        if (isCPUNext) {
+            return "CPU's turn";
+        } else {
+            return "Your turn";
+        };
+    };
+
+    function playAgain() {
+        setBoard([
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+        ]);
+        setWinner(null);
+        setIsCPUNext(false);
+    };
+    
+
+    return (
+        <div>
+            <div>{!winner && displayTurn()}</div>
+            <div className = {}></div>
+        </div>
+    )
+
+};

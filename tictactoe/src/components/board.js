@@ -1,17 +1,17 @@
-import React from 'react';
+// import React from 'react';
 
-import Squares from './components/squares.js';
+// import Squares from './components/squares.js';
 
-export const Board = (board, onClick) => {
-    return (
-        <div>
-            {board.map((value, i) => {
-            <Squares value = {value} onClick = {()=> onClick(i)}/>
+// export const Board = (board, onClick) => {
+//     return (
+//         <div>
+//             {board.map((value, i) => {
+//             <Squares value = {value} onClick = {()=> onClick(i)}/>
 
-            })}
+//             })}
             
-        </div>
-    );
-};
+//         </div>
+//     );
+// };
  
-export default Board
+// export default Board
