@@ -3,15 +3,64 @@ import { RiLoginBoxFill } from 'react-icons/ri';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { GiAbstract111 } from 'react-icons/gi';
 import { HiHome } from 'react-icons/hi';
-import { BiLogOut } from 'react-icons/bi';
+import { HiUserCircle } from 'react-icons/hi';
+import { BiLogOut } from 'react-icons/bi'; 
 import { NavLink as Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 // import { useStateContext } from '../contexts/ContextProvider';
 
 
+const LoggedOutContainer = () => {
+
+  <div className='flex gap-3 items-center justify-between'>
+      <NavLink to='/register' className='border-2 border-mintgreen rounded-xl mx-2.5 flex text-gold h-16 items-center no-underline px-4 gap-2'>
+          <BsFillPersonPlusFill />
+          <span>Register</span>
+      </NavLink>
+
+      <NavLink to='/login' className='border-2 border-mintgreen rounded-xl mx-2.5 flex text-gold h-16 items-center no-underline px-4 gap-2'>
+          <RiLoginBoxFill />
+          <span>Login</span>
+      </NavLink>
+    </div>
+
+}
+
+
+const LoggedInContainer = ({ username, customFunc }) => {
+  <div className='flex gap-3 items-center justify-between'>
+
+    <HiUserCircle className='text-gold'/>
+
+    <h1 className='text-gold text-2xl'>Welcome back, {username}!</h1>
+
+    <h1 onClick={customFunc} className='text-mintgreen text-xl'>Logout</h1>
+
+  </div>
+}
+
 
 const Navbar = () => {
+
+  const logoutFunc = () => {
+
+    localStorage.clear('user_info');
+
+    window.location.reload();
+  }
+
+  var isLoggedIn = () => {
+
+    if(localStorage.getItem('user_info') === 1 ){
+      isLoggedIn = true;
+    }
+    else{
+      isLoggedIn = false;
+    }
+
+  }
+  
 
     // const location = useLocation();
     // const path = location.pathname;
@@ -20,22 +69,9 @@ const Navbar = () => {
     //   path === '/login' || path === '/register' ? false : true
     // );
 
-
-    // const { setScreenSize, setIsClicked, isClicked, handleClick, screenSize} = useStateContext();
-
-    // useEffect(() => {
-    //     const handleResize = () => setScreenSize(window.innerWidth);
-
-    //     window.addEventListener('resize', handleResize);
-
-    //     handleResize();
-
-    //     return () => window.removeEventListener('resize', handleResize);
-    // }, [setScreenSize]);
-
     
   return (
-      <Nav className='bg-darkpurple flex border-b-2 border-gold w-screen'>
+      <Nav className='bg-darkpurple flex flex-row border-b-2 border-gold w-screen'>
         <Link to='/'>
           <NavLogo className='gap-3'>
               <GiAbstract111 />
@@ -44,23 +80,26 @@ const Navbar = () => {
         </Link>
 
 
-          <LinkContainer>
-            {/* <HiHome className='text-gold' /> */}
-          
-          </LinkContainer>
-          
+          <div className='flex gap-12 items-center'>
 
-          <BtnContainer className='flex gap-3 items-center'>
-              <NavLink to='/register'>
-                  <BsFillPersonPlusFill />
-                  <span>Register</span>
-              </NavLink>
+            <Link to='leaderboard' className='text-gold text-xl flex text-center'>
+              <span>Leaderboards</span>
+            </Link>
 
-              <NavLink to='/login'>
-                  <RiLoginBoxFill />
-                  <span>Login</span>
-              </NavLink>
-          </BtnContainer>
+            <Link to='/' className='text-gold text-xl flex text-center'>
+              <span>Home</span>
+            </Link>
+          
+          </div>
+
+        <div>
+          {
+            isLoggedIn === true ?
+              <LoggedInContainer user={localStorage.getItem('username')} customFunc={logoutFunc}/> :
+              <LoggedOutContainer /> 
+          }
+        </div>
+          
 
       </Nav>
 
@@ -68,26 +107,9 @@ const Navbar = () => {
 }
 
 
-export const BtnContainer = styled.nav`
-    display: flex;
-    justify-content: space-between;
-`
-
-export const LinkContainer = styled.nav`
-    
-`
 
 export const NavLink = styled(Link)`
   color: #fff;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0 1rem;
-  border: solid 2px #40d6ae;
-  border-radius: 15px;
-  margin: 0 10px;
-  height: 60px;
-  gap: 0.5rem;
   cursor: pointer;
 
   transition: 0.3s ease-in-out;
