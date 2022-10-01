@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { RiLoginBoxFill } from 'react-icons/ri';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { GiAbstract111 } from 'react-icons/gi';
-import { HiHome } from 'react-icons/hi';
 import { HiUserCircle } from 'react-icons/hi';
-import { BiLogOut } from 'react-icons/bi'; 
 import { NavLink as Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -44,14 +42,13 @@ const LoggedInContainer = ({ username, customFunc }) => {
 const Navbar = () => {
 
   const logoutFunc = () => {
-
     localStorage.clear('user_info');
 
     window.location.reload();
   }
 
-  var isLoggedIn = () => {
 
+  var isLoggedIn = () => {
     if(localStorage.getItem('user_info') === 1 ){
       isLoggedIn = true;
     }
@@ -61,13 +58,12 @@ const Navbar = () => {
 
   }
   
-
-    // const location = useLocation();
-    // const path = location.pathname;
+  // const path = location.pathname;
+  // const location = useLocation();
     
-    // const [ display, setDisplay ] = useState(
-    //   path === '/login' || path === '/register' ? false : true
-    // );
+  // path === '/login' || path === '/register' ? false : true
+  // const [ display, setDisplay ] = useState(
+  // );
 
     
   return (
