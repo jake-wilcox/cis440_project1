@@ -111,7 +111,16 @@ const Snake = () => {
 
         <button onClick={startGame} className=' flex text-gold text-3xl font-bold'>START GAME</button>
 
-        {gameOver && <div className='text-mintgreen text-3xl font-bold mt-5'>GAME OVER!</div>}
+        {gameOver && 
+          <div className='mt-5'>
+              <h1 className='text-mintgreen text-3xl font-bold text-center'>GAME OVER!
+              </h1>
+
+              <h2 className='text-mintgreen text-md font-bold text-center'>
+                PRESS SPACE TO PLAY AGAIN
+              </h2>
+
+            </div>}
 
       </div>
 
