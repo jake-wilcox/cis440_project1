@@ -62,10 +62,10 @@ const Register = () => {
                     console.log(error.config);
                   });
 
-            if(data['status'] == 2){
+            if(data['status'] == 1){
             toast.error('Somethings wrong on our end...\ntry again later', toastOptions);
             }
-            if(data['status'] == 1){
+            if(data['status'] == 2){
                 toast.error('Email already taken\nuse a different email or log in', toastOptions);
                 }
             if(data['status'] == 0){

@@ -8,8 +8,6 @@ import { GiAbstract111 as Logo} from 'react-icons/gi';
 import axios from "axios";
 
 
-const loggedInContext = React.createContext(false)
-
 const Login = () => {
   const navigate = useNavigate();
 

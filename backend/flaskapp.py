@@ -1,3 +1,4 @@
+from distutils.log import ERROR
 from flask import Flask, request, render_template
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
@@ -83,7 +84,8 @@ def register():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(f"SELECT * FROM user WHERE email= '{request_data['email']}'")
     except:
-        print('sql connection failed')
+        print('sql connection failedddd')
+        cursor.close()
         return {'status': 1}
 
     if cursor.rowcount != 0:
@@ -91,12 +93,13 @@ def register():
         return{'status': 2}
 
     try:
-        cursor.execute(f"INSERT INTO user (username, password, email, totalScore) VALUES ('{request_data['username']}', '{request_data['password']}', '{request_data['email']}', 0)")
+        cursor.execute(f"INSERT INTO user (username, password, email, hangmanScore, snakeScore, tictactoeScore) VALUES ('{request_data['username']}', '{request_data['password']}', '{request_data['email']}', 0, 0, 0)")
         mysql.connection.commit()
         print('created')
     except:
-        print('sql connection failed')
-        return {'status': 2}
+        print('sql connection failedyy')
+        cursor.close()
+        return {'status': 1}
 
     cursor.execute(f"SELECT * FROM user WHERE email = '{request_data['email']}'")
     account = cursor.fetchone()
@@ -104,26 +107,49 @@ def register():
     return account
  
 
-@app.route('/scoreboard')
-def score_board():
+@app.route('/leaderboard')
+def leaderboard():
     print('getting scoreboard')
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("SELECT username, totalScore FROM user ORDER BY totalScore DESC LIMIT 10")
-    scores = cursor.fetchall()
+    cursor.execute("SELECT username, hangmanScore FROM user ORDER BY hangmanScore DESC LIMIT 3")
+    hangmanScores = cursor.fetchall()
+
+    cursor.execute("SELECT username, snakeScore FROM user ORDER BY snakeScore DESC LIMIT 3")
+    snakeScores = cursor.fetchall()
+
+    cursor.execute("SELECT username, tictactoeScore FROM user ORDER BY tictactoeScore DESC LIMIT 3")
+    tictactoeScores = cursor.fetchall()
+
+    print(snakeScores)
+    print(hangmanScores)
+    print(tictactoeScores)
+    scores = {'snake': snakeScores, 'hangman': hangmanScores, 'tictactoe': tictactoeScores}
     return scores
+
 
 @app.route('/updateScore', methods=['POST'])
 def update():
     #Takes in users id and current score
     # we need to update total score in both local storage, and our database
 
+    # needs the games tile LOWERCASE, Current users id, and their score for this game from localStorage
+
     print('updating score')
     request_data = request.get_json()
-    new_score = request_data['totalScore'] + 1
+
+    gameName = str(request_data['gameTitle']+'Score')
+
+    new_score = request_data[gameName] + 1
     cursor = mysql.connection.cursor()
-    cursor.execute(f"UPDATE user SET totalScore = {new_score} WHERE id = {request_data['id']}")
+
+
+
+    cursor.execute(f"UPDATE user SET {gameName} = {new_score} WHERE id = {request_data['id']}")
     mysql.connection.commit()
     print('Score Updated')
+
+
+    
 
 
 
