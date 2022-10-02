@@ -69,7 +69,7 @@ class Hangman extends Component {
             <div className = "container">
                 <h1 className = "text-center mt-4">Hangman</h1>
                 <div>
-                <p className = "text-center mt-4">Instructions: Please guess the letters by clicking on the buttons. You have 6 attempts. Good luck!</p>
+                <p className = "text-center mt-4"><strong>Instructions</strong>: Please guess the letters by clicking on the buttons. You have 6 attempts. Good luck!</p>
                 </div>
                 <div className = "float-right">
                 Guess {this.state.errors} of 6

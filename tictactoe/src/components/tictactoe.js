@@ -1,12 +1,14 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 
-function timer(seconds) {
+import './styles.css';
+
+function timer(milliseconds) {
     const date = Date.now();
     let currentDate = null;
     do {
         currentDate = Date.now();
-    } while(currentDate - date < seconds);
+    } while(currentDate - date < milliseconds);
 };
 
 const players = {
@@ -15,7 +17,7 @@ const players = {
         NAME: "CPU",
     },
     HUMAN: {
-        SYM: "O",
+        SYM: "X",
         NAME: "You"
     },
 };
@@ -28,12 +30,12 @@ export default function TicTacToe() {
         ["", "", ""],
     ]);
 
-    const [isCPUnext, setIsCPUNext] = useState(false);
+    const [isCPUNext, setIsCPUNext] = useState(false);
     const [winner, setWinner] = useState(null);
 
     // allows players to play when clicking on it and checks if the game is over
     function playFunction(arrayIndex, index) {
-        if (isCPUnext) return;
+        if (isCPUNext) return;
         if (winner) return;
         board[arrayIndex][index] = players?.HUMAN?.SYM
         setBoard((board) => [...board]);
@@ -52,7 +54,7 @@ export default function TicTacToe() {
     // checks if game is over, if not, it'll call for the CPU's move
     function cpuPlay() {
         if (winner) return; 
-        timer(10);
+        timer(1000);
 
         const cpuMove = cpuTurn(); 
 
@@ -148,7 +150,7 @@ export default function TicTacToe() {
         };
     };
 
-    function playAgain() {
+    function reset() {
         setBoard([
             ["", "", ""],
             ["", "", ""],
@@ -160,10 +162,57 @@ export default function TicTacToe() {
     
 
     return (
-        <div>
+        <div className = 'container'>
+            <h1 className = 'text-center mt-4'>Tic Tac Toe</h1>
+            <div>
+                <p className='text-center mt-4'><strong>Instructions</strong>: You are Player X and the CPU is Player O. Place your tile onto the board by clicking the space. Three in a row wins. Good luck!</p>
+            </div>
             <div>{!winner && displayTurn()}</div>
-            <div className = {}></div>
+            <div className = 'board'>
+                <div className = 'column'>
+                    <span onClick ={() => playFunction(0,0)} className = 'cell'>
+                        {board[0][0]}
+                    </span>
+                    <span onClick ={() => playFunction(0,1)} className = 'cell'>
+                        {board[0][1]}
+                    </span>
+                    <span onClick ={() => playFunction(0,2)} className = 'cell'>
+                        {board[0][2]}
+                    </span>
+                </div>
+                <div className = 'column'>
+                    <span onClick ={() => playFunction(1,0)} className = 'cell'>
+                        {board[1][0]}
+                    </span>
+                    <span onClick ={() => playFunction(1,1)} className = 'cell'>
+                        {board[1][1]}
+                    </span>
+                    <span onClick ={() => playFunction(1,2)} className = 'cell'>
+                        {board[1][2]}
+                    </span>
+                </div>
+                <div className = 'column'>
+                    <span onClick ={() => playFunction(2,0)} className = 'cell'>
+                        {board[2][0]}
+                    </span>
+                    <span onClick ={() => playFunction(2,1)} className = 'cell'>
+                        {board[2][1]}
+                    </span>
+                    <span onClick ={() => playFunction(2,2)} className = 'cell'>
+                        {board[2][2]}
+                    </span>
+                </div>
+                
+            </div>
+
+            {winner && <h2>{displayWinner()}</h2>}
+            <br />
+                <button className = 'btn reset' onClick = {reset}>
+                    Reset
+                </button>
+            
+            
         </div>
-    )
+    );
 
 };
