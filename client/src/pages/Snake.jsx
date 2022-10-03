@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Navbar, Footer } from '../components'
 import { useInterval } from '../contexts/ContextProvider';
+import isLoggedIn from '../components/isLoggedIn';
+import axios from 'axios';
+
 
 
 // constants for game
@@ -19,6 +22,14 @@ const DIRECTIONS = {
   39: [1, 0] // right
 };
 
+const updateScore = () =>{
+  console.log('updating score')
+
+  const user = JSON.parse(localStorage.getItem('user_info'))
+  const oldScore = user['snakeScore']
+  // console.log(appleCount)
+}
+
 
 const Snake = () => {
 
@@ -28,12 +39,16 @@ const Snake = () => {
   const [dir, setDir] = useState([0, -1]);
   const [speed, setSpeed] = useState(null);
   const [gameOver, setGameOver] = useState(false);
+  const [appleCount, setAppleCount] = useState(0)
 
   useInterval(() => gameLoop(), speed);
 
   const endGame = () => {
     setSpeed(null);
     setGameOver(true);
+    if((isLoggedIn())){
+      updateScore();
+    }
   };
 
   const moveSnake = ({ keyCode }) =>
@@ -64,6 +79,7 @@ const Snake = () => {
         newApple = createApple();
       }
       setApple(newApple);
+      setAppleCount(appleCount + 1)
       return true;
     }
     return false;

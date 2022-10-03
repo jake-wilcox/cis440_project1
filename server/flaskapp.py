@@ -129,7 +129,7 @@ def leaderboard():
 
 @app.route('/updateScore', methods=['POST'])
 def update():
-    #Takes in users id and current score
+    #Takes in users id, game, and current score
     # we need to update total score in both local storage, and our database
 
     # needs the games tile LOWERCASE, Current users id, and their score for this game from localStorage

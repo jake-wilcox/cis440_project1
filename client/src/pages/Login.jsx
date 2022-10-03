@@ -21,38 +21,62 @@ const Login = () => {
 
   const [values, setValues] = useState({
     email: "",
-    username: "",
+    password: "",
   })
 
-  useEffect(() => {
-    if (localStorage.getItem("cis440_project1-User")){
-      navigate("/");
-    }
-  });
-  //end of login Func
+
   
 
   const handleSubmit = async (event) => {
+    console.log('handeling submit')
     event.preventDefault();
 
     if(handleValidation()){
       const { password, email } = values;
-      const { data } = await axios.post('./login', {  // Check for login route './login' object 
-        email, 
-        password,
+      console.log(values)
+      
+      // Error handeling copied from axios docs except for toasts
+      const { data } = await axios.post('./login', {  // Check for login route './login'
+        email,
+        password
+      }).catch(function (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          toast.error("Somethings wrong on our end...\ntry again later", toastOptions)
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          toast.error("Somethings wrong on our end...\ntry again later", toastOptions)
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
       });
 
-      if(data.status === false){
-        toast.error(data.msg, toastOptions);
-      }
+    
 
-      if(data.status === true){
-        localStorage.setItem("cis440_project1-User", JSON.stringify(data.user));
+      console.log(data)
+      if(data['status'] == 0){
+        console.log('logged in')
+        localStorage.setItem("user_info", JSON.stringify(data))
+        navigate("/")
+      }else 
+      if(data['status'] == 2){
+        toast.error("Email not found, try again or create an account", toastOptions)
+      }else
+      if(data['status'] == 3){
+        toast.error("Incorrect password", toastOptions)
+      }else{
+        toast.error("Somethings wrong on our end...\ntry again later", toastOptions)
+      }
       
-
-      navigate("/");
-      }
-
     };
 
   }; 
