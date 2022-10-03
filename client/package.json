@@ -2,6 +2,7 @@
   "name": "cis440_project1",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@syncfusion/ej2": "^20.2.50",
     "@syncfusion/ej2-react-popups": "^20.2.49",
@@ -23,6 +24,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "start_backend": "cd ../../ && source backend_venv/bin/activate && python3 /Users/jakewilcox/Desktop/CIS/CIS_440_capstone/cis440_project1/server/flaskapp.py",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
