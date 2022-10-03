@@ -167,8 +167,8 @@ export default function TicTacToe() {
             <div>
                 <p className='text-center mt-4'><strong>Instructions</strong>: You are Player X and the CPU is Player O. Place your tile onto the board by clicking the space. Three in a row wins. Good luck!</p>
             </div>
-            <div>{!winner && displayTurn()}</div>
-            <div className = 'board'>
+            <div className = 'text-left'>{!winner && displayTurn()}</div>
+            <div>
                 <div className = 'column'>
                     <span onClick ={() => playFunction(0,0)} className = 'cell'>
                         {board[0][0]}
@@ -207,7 +207,7 @@ export default function TicTacToe() {
 
             {winner && <h2>{displayWinner()}</h2>}
             <br />
-                <button className = 'btn reset' onClick = {reset}>
+                <button className = 'btn-info reset' onClick = {reset}>
                     Reset
                 </button>
             
