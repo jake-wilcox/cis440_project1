@@ -101,15 +101,15 @@ const Snake = () => {
     <>
       <Navbar />
 
-      <div className='bg-darkblue flex flex-col h-screen place-content-center items-center' role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
+      <div className='bg-darkblue flex flex-col h-screen w-screen place-content-center items-center' role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
 
-        <h1 className='text-gold text-4xl font-bold mb-10'>SNAKE</h1>
+        <h1 className='text-gold text-6xl mb-10'>SNAKE</h1>
 
         <canvas
-          className='border-1 border-gold bg-darkpurple h-3/5 rounded-xl mb-10' ref={canvasRef} width={`${CANVAS_SIZE[0]}px`} height={`${CANVAS_SIZE[1]}px`}
+          className='border-2 border-gold bg-darkpurple h-3/5 rounded-xl mb-10' ref={canvasRef} width={`${CANVAS_SIZE[0]}px`} height={`${CANVAS_SIZE[1]}px`}
         />
 
-        <button onClick={startGame} className=' flex text-gold text-3xl font-bold'>START GAME</button>
+        <button onClick={startGame} className=' flex text-gold text-3xl font-bold underline leading-5'>START GAME</button>
 
         {gameOver && 
           <div className='mt-5'>

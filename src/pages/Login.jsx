@@ -6,7 +6,6 @@ import { GiAbstract111 as Logo} from 'react-icons/gi';
 import styled from "styled-components";
 import "react-toastify/dist/ReactToastify.css";
 
-
 import axios from "axios";
 
 const Login = () => {

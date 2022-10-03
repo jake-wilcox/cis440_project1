@@ -30,6 +30,7 @@ export const ContextProvider = ({ children }) => {
     
 }
 
+// snake callback
 export function useInterval(callback, delay) {
     const savedCallback = useRef();
   
@@ -49,6 +50,7 @@ export function useInterval(callback, delay) {
       }
     }, [delay]);
   }
+
 
 export const useStateContext = () => useContext(StateContext);
 

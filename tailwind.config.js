@@ -9,6 +9,9 @@ module.exports = {
       'white': '#ffffff',
       'darkblue': '#151145'
     },
+    minWidth: {
+      '5': '5rem'
+    },
     fontFamily: {
       display: ['Open Sans', 'sans-serif'],
       body: ['Open Sans', 'sans-serif'],
