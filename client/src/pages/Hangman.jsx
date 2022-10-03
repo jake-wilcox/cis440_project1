@@ -1,13 +1,14 @@
 import React from 'react'
 import { Navbar } from '../components';
+import { HangmanGame} from '../components/HangmanGame';
 
-const Hangman = () => {
+function Hangman () {
   return (
-    <>
+    <> 
       <Navbar />
-      hangman
-    </>
-  )
-}
+      <HangmanGame />
+     </>      
+  );
+};
 
 export default Hangman

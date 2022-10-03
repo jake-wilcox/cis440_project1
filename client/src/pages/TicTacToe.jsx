@@ -1,13 +1,15 @@
 import React from 'react'
 import { Navbar } from '../components'
+import TicTacToeGame from '../components/TicTacToeGame';
 
-const TicTacToe = () => {
+function TicTacToeApp() {
+
   return (
     <>
       <Navbar />
-      tic tac toe
+      <TicTacToeGame />
     </>
-  )
+  );
 }
 
-export default TicTacToe
+export default TicTacToeApp
