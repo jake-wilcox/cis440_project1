@@ -3,6 +3,7 @@ import { Navbar, Footer } from '../components'
 import { useInterval } from '../contexts/ContextProvider';
 import { isLoggedIn } from '../contexts/ContextProvider';
 import axios from 'axios';
+import scoreToDb from '../components/ScoreToDb';
 
 
 
@@ -22,16 +23,24 @@ const DIRECTIONS = {
   39: [1, 0] // right
 };
 
-const updateScore = () =>{
-  console.log('updating score')
-
-  const user = JSON.parse(localStorage.getItem('user_info'))
-  const oldScore = user['snakeScore']
-  // console.log(appleCount)
-}
 
 
 const Snake = () => {
+
+
+
+  const updateScore = () =>{
+    console.log('updating score')
+  
+    const user = JSON.parse(localStorage.getItem('user_info'))
+    const oldScore = user['snakeScore']
+    const newScore = appleCount 
+    
+    scoreToDb('snakeScore', oldScore, newScore)
+
+
+
+  }
 
   const canvasRef = useRef();
   const [snake, setSnake] = useState(SNAKE_START);
@@ -48,6 +57,7 @@ const Snake = () => {
     setGameOver(true);
     if((isLoggedIn())){
       updateScore();
+      setAppleCount(0)
     }
   };
 
