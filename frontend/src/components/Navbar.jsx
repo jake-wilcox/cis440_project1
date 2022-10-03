@@ -49,7 +49,7 @@ const Navbar = () => {
 
 
   var isLoggedIn = () => {
-    if(localStorage.getItem('user_info') === 1 ){
+    if(localStorage.length === 1 ){
       isLoggedIn = true;
     }
     else{

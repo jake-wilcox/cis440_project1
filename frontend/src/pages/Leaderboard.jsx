@@ -2,6 +2,8 @@ import React from 'react'
 import { Navbar, Footer } from '../components';
 import { IoMdTrophy } from 'react-icons/io';
 import { LeaderboardChart } from '../components';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Leaderboard = () => {
 
