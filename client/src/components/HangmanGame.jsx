@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import { randomWord } from './wordBank.js';
+import { randomWord } from './wordBank';
 
-import step0 from "./images/0.jpeg";
-import step1 from "./images/1.jpeg";
-import step2 from "./images/2.jpeg";
-import step3 from "./images/3.jpeg";
-import step4 from "./images/4.jpeg";
-import step5 from "./images/5.jpeg";
-import step6 from "./images/6.jpeg";
+import step0 from "./data/0.jpeg";
+import step1 from "./data/1.jpeg";
+import step2 from "./data/2.jpeg";
+import step3 from "./data/3.jpeg";
+import step4 from "./data/4.jpeg";
+import step5 from "./data/5.jpeg";
+import step6 from "./data/6.jpeg";
 
 class HangmanGame extends Component {
     static defaultProps = {
