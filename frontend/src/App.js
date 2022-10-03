@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Login, Register, Settings, Snake, TicTacToe, Hangman, Games, Leaderboard } from './pages';
+import { Login, Register, Snake, TicTacToe, Hangman, Games, Leaderboard, Hangmanx } from './pages';
 
-import { Navbar, Footer } from './components';
 
 // import { useStateContext } from './contexts/ContextProvider';
 
@@ -15,19 +14,17 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-  
-
-        <Navbar />
 
         <div>
           <Routes>
-            <Route path='/' element={<Games />} />
             
             <Route path='/login' element={<Login />} />
 
             <Route path='/register' element={<Register />} />
 
-            <Route path='/settings' element={<Settings />} />
+            <Route path='/' element={<Games />} />
+
+            <Route path='/leaderboard' element={<Leaderboard /> } />
 
             <Route path='/snake' element={<Snake />} />
 
@@ -35,14 +32,8 @@ const App = () => {
 
             <Route path='/tictactoe' element={<TicTacToe />} />
 
-            <Route path='/leaderboard' element={<Leaderboard />} />
-
-
-
           </Routes>
         </div>
-
-        {/* <Footer /> */}
 
         
       </BrowserRouter>

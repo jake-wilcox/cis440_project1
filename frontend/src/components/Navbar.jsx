@@ -1,109 +1,122 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { RiLoginBoxFill } from 'react-icons/ri';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { GiAbstract111 } from 'react-icons/gi';
-import { NavLink as Link } from 'react-router-dom';
+import { HiUserCircle } from 'react-icons/hi';
+import { NavLink as Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+
+// import { useStateContext } from '../contexts/ContextProvider';
+
+
+const LoggedOutContainer = () => {
+
+  <div className='flex gap-3 items-center justify-between'>
+      <NavLink to='/register' className='border-2 border-mintgreen rounded-xl mx-2.5 flex text-gold h-16 items-center no-underline px-4 gap-2'>
+          <BsFillPersonPlusFill />
+          <span>Register</span>
+      </NavLink>
+
+      <NavLink to='/login' className='border-2 border-mintgreen rounded-xl mx-2.5 flex text-gold h-16 items-center no-underline px-4 gap-2'>
+          <RiLoginBoxFill />
+          <span>Login</span>
+      </NavLink>
+    </div>
+
+}
+
+
+const LoggedInContainer = ({ username, customFunc }) => {
+  <div className='flex gap-3 items-center justify-between'>
+
+    <HiUserCircle className='text-gold'/>
+
+    <h1 className='text-gold text-2xl'>Welcome back, {username}!</h1>
+
+    <h1 onClick={customFunc} className='text-mintgreen text-xl'>Logout</h1>
+
+  </div>
+}
 
 
 const Navbar = () => {
-    // const { setScreenSize, setIsClicked, isClicked, handleClick, screenSize} = useStateContext();
 
-    // useEffect(() => {
-    //     const handleResize = () => setScreenSize(window.innerWidth);
+  const logoutFunc = () => {
+    localStorage.clear('user_info');
 
-    //     window.addEventListener('resize', handleResize);
+    window.location.reload();
+  }
 
-    //     handleResize();
 
-    //     return () => window.removeEventListener('resize', handleResize);
-    // }, [setScreenSize]);
-
-    if(localStorage.length == 0){
-      const Buttons = () => {
-        <BtnContainer>
-        <NavLink to='/register' >
-            <BsFillPersonPlusFill />
-            <span>Register</span>
-        </NavLink>
-
-        <NavLink to='/login'>
-            <RiLoginBoxFill />
-            <span>Login</span>
-        </NavLink>
-      </BtnContainer>
-
-      }
-    }else{
-           const Buttons = () => {
-        <BtnContainer>
-        <NavLink to='/register' >
-            <BsFillPersonPlusFill />
-            <span>Register</span>
-        </NavLink>
-
-        <NavLink to='/login'>
-            <RiLoginBoxFill />
-            <span>Login</span>
-        </NavLink>
-      </BtnContainer>
-
-      }
-
+  var isLoggedIn = () => {
+    if(localStorage.getItem('user_info') === 1 ){
+      isLoggedIn = true;
     }
+    else{
+      isLoggedIn = false;
+    }
+
+  }
+  
+  // const path = location.pathname;
+  // const location = useLocation();
+    
+  // path === '/login' || path === '/register' ? false : true
+  // const [ display, setDisplay ] = useState(
+  // );
 
     
   return (
-    <Nav>
-        <NavLogo to='/' className='gap-3'>
-            <GiAbstract111 />
-            <h1>Kool Gamez</h1>
-        </NavLogo>
-        
+      <Nav className='bg-darkpurple flex flex-row border-b-2 border-gold w-screen'>
+        <Link to='/'>
+          <NavLogo className='gap-3'>
+              <GiAbstract111 />
+              <h1>Kool Gamez</h1>
+          </NavLogo>
+        </Link>
 
-        <BtnContainer>
-            <NavLink to='/register' >
-                <BsFillPersonPlusFill />
-                <span>Register</span>
-            </NavLink>
 
-            <NavLink to='/login'>
-                <RiLoginBoxFill />
-                <span>Login</span>
-            </NavLink>
-        </BtnContainer>
+          <div className='flex gap-12 items-center'>
 
-    </Nav>
+            <Link to='leaderboard' className='text-gold text-xl flex text-center'>
+              <span>Leaderboards</span>
+            </Link>
+
+            <Link to='/' className='text-gold text-xl flex text-center'>
+              <span>Home</span>
+            </Link>
+          
+          </div>
+
+        <div>
+          {
+            isLoggedIn === true ?
+              <LoggedInContainer user={localStorage.getItem('username')} customFunc={logoutFunc}/> :
+              <LoggedOutContainer /> 
+          }
+        </div>
+          
+
+      </Nav>
+
   )
 }
 
 
-const BtnContainer = styled.nav`
-    display: flex;
-    justify-content: space-between;
-`
 
-const NavLink = styled(Link)`
+export const NavLink = styled(Link)`
   color: #fff;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0 1rem;
-  border: solid 1px #40d6ae;
-  border-radius: 10px;
-  margin: 0 10px;
-  height: 100%;
   cursor: pointer;
 
-  &.active {
-    color: #42E2B8;
-  }
+  transition: 0.3s ease-in-out;
+        &:hover{
+            background-color: #40d6ae;
+            color: #0e0c1f;
+        }
 `;
 
 export const Nav = styled.nav`
-  background: #0e0c1f;
   height: 90px;
-  display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1500px) / 2);
   z-index: 10;

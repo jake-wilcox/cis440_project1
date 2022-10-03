@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
+// import { Navbar } from '../components';
 import { GiAbstract111 as Logo} from 'react-icons/gi';
+import styled from "styled-components";
+import "react-toastify/dist/ReactToastify.css";
+
 
 import axios from "axios";
-
 
 const Login = () => {
   const navigate = useNavigate();
 
   const toastOptions = { 
-    positions: "bottom-right",
+    position: "bottom-right",
     autoClose: 8000,
     pauseOnHover: true,
     draggable: true,
@@ -23,16 +24,8 @@ const Login = () => {
     email: "",
     password: "",
   })
-
-  // not needed if we change buttons on login
-  // useEffect(() => {
-  //   if (localStorage.getItem("cis440_project1-User")){
-  //     navigate("/");
-  //   }
-  // });
-  //end of login Func
+};//end of login Func
   
-
   const handleSubmit = async (event) => {
     console.log('handeling submit')
     event.preventDefault();
@@ -40,7 +33,6 @@ const Login = () => {
     if(handleValidation()){
       const { password, email } = values;
       console.log(values)
-      
       // Error handeling copied from axios docs except for toasts
       const { data } = await axios.post('./login', {  // Check for login route './login'
         email,
@@ -66,7 +58,6 @@ const Login = () => {
         console.log(error.config);
       });
 
-    
 
       console.log(data)
       if(data['status'] == 0){
@@ -81,16 +72,11 @@ const Login = () => {
         toast.error("Incorrect password", toastOptions)
       }else{
         toast.error("Somethings wrong on our end...\ntry again later", toastOptions)
-      }
-      
-
-    
-
-      
+      }      
 
     };
 
-  }; 
+  
   // end of handleSubmit 
 
   const handleValidation = () => {
@@ -105,7 +91,7 @@ const Login = () => {
     }
     return true;
 
-  } //end of handleValidation 
+  }; //end of handleValidation 
 
   const handleChange = (event) => {
     setValues({...values, [event.target.name]:event.target.value});
@@ -113,12 +99,15 @@ const Login = () => {
 
   return (
     <>
-        <FormContainer>
-            <form onSubmit={(event) => handleSubmit(event)}>
+
+        <FormContainer className='flex flex-col justify-center items-center gap-4 bg-darkblue w-screen h-screen'>
+
+            <form onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20 bg-darkpurple border-1 border-gold'>
                 <div>
                     <GiAbstract111 />
-                    <h1>Kool Gamez</h1>
+                    <h1 className='text-3xl mt-3 text-center uppercase text-gold'>Kool Gamez</h1>
                 </div>
+                
                 <input
                  type="email"
                   placeholder="Email"
@@ -133,8 +122,8 @@ const Login = () => {
                     onChange={(e)=> handleChange(e)}
                 />
 
-                <button type="submit">Login</button> 
-                <span>Don't have an account? <Link to="/register">Register Now</Link></span>
+                <button type="submit" className='px-8 py-4 border-none font-bold cursor-pointer rounded-md font-base uppercase bg-mintgreen text-darkpurple'>Login</button> 
+                <span className='text-white uppercase'>Don't have an account? <Link to="/register" className='font-bold'>Register Now</Link></span>
             </form>
         </FormContainer>
 
@@ -144,69 +133,30 @@ const Login = () => {
 }
 
 export const FormContainer = styled.div`
-    height: 90vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    align-items: center;
-    background-color: #151145;
-
-.brand{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: center;
-}
-    h1{
-        color: #F3DFBF;
-        text-transform: uppercase;
-        font-size: 25px;
-        text-align: center;
-        margin-top: 10px;
-    }
     form{
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        background-color: #0e0c1f;
         border-radius: 2rem;
-        padding: 3rem 5rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 24px 28px, rgba(0, 0, 0, 0.22) 0px 15px 30px;
     }
     input{
         background-color: #131124;
         padding: 1rem;
         border-radius: 0.4rem;
-        color: white;
+        color: #0e0c1f;
         width: 100%;
         font-size: 1rem;
         border: 0.1rem solid #40d6ae;
         outline: none;
     }
     button{
-        background-color: #40d6ae;
-        color: white;
-        padding: 1rem 2rem;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 0.4rem;
-        font-size: 1rem;
-        text-transform: uppercase;
         transition: 0.5s ease-in-out;
         &:hover{
             background-color: #01ae80;
         }
     }
     span{
-        color: white;
-        text-transform: uppercase;
         a{
             color: #15ffc1;
             text-decoration: none;
-            font-weight: bold;
         }
     }
 
@@ -220,9 +170,6 @@ const GiAbstract111 = styled(Logo)`
       
 `
 
-// const LoginLogo = styled.nav`
-  
-// `
 
 
 export default Login

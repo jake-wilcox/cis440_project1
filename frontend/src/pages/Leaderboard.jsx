@@ -2,10 +2,6 @@ import React from 'react'
 import { Navbar, Footer } from '../components';
 import { IoMdTrophy } from 'react-icons/io';
 import { LeaderboardChart } from '../components';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-
 
 const Leaderboard = () => {
 
@@ -25,23 +21,19 @@ useEffect(() => {
   console.log('inside use effect');
 }, {})
 
-
-
   if(isLoading){
     console.log('loading')
     return <div>Loading...</div>
   }
-  
+
 
   return (
     <div>
-      {console.log('rendering page')}
-      {console.log(userScores)}
       
 
       <div className='flex flex-col items-center bg-darkblue h-screen'>
 
-    
+        <Navbar />
 
         <div className='pb-6 pt-10'>
           <IoMdTrophy className='text-gold w-12 h-12 m-auto my-4'/>
@@ -54,11 +46,11 @@ useEffect(() => {
 
         <div className='flex my-8 space-x-72'>
 
-          <LeaderboardChart gameTitle='Hangman' userData= {userScores['hangman']} />
+          <LeaderboardChart gameTitle='Hangman' />
 
-          <LeaderboardChart gameTitle='Snake' userData= {userScores['snake']}/>
+          <LeaderboardChart gameTitle='Snake' />
 
-          <LeaderboardChart gameTitle='Tic Tac Toe' userData= {userScores['tictactoe']}/>
+          <LeaderboardChart gameTitle='Tic Tac Toe' />
     
         </div>
 

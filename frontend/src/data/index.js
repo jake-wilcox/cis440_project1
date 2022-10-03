@@ -1,3 +1,10 @@
 export { default as HangmanImg } from './hangman.jpg';
 export { default as TicTacToeImg } from './tictactoe.png';
 export { default as SnakeImg } from './snake.png';
+export { default as step0 } from './0.jpeg';
+export { default as step1 } from './1.jpeg';
+export { default as step2 } from './2.jpeg';
+export { default as step3 } from './3.jpeg';
+export { default as step4 } from './4.jpeg';
+export { default as step5 } from './5.jpeg';
+export { default as step6 } from './6.jpeg';
