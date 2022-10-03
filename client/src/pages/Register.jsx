@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { GiAbstract111 as Logo } from 'react-icons/gi';
@@ -57,13 +57,13 @@ const Register = () => {
                     console.log(error.config);
                   });
 
-            if(data['status'] == 1){
+            if(data['status'] === 1){
             toast.error('Somethings wrong on our end...\ntry again later', toastOptions);
             }
-            if(data['status'] == 2){
+            if(data['status'] === 2){
                 toast.error('Email already taken\nuse a different email or log in', toastOptions);
                 }
-            if(data['status'] == 0){
+            if(data['status'] === 0){
                 console.log('account created')
                 localStorage.setItem("user_info", JSON.stringify(data))
                 // navigate user to log in page or home page

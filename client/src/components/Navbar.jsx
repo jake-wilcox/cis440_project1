@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { RiLoginBoxFill } from 'react-icons/ri';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { GiAbstract111 } from 'react-icons/gi';
 import { HiUserCircle } from 'react-icons/hi';
-import { NavLink as Link, useLocation } from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
-import isLoggedIn from './isLoggedIn';
+import { isLoggedIn } from '../contexts/ContextProvider';
 
 // import { useStateContext } from '../contexts/ContextProvider';
 
@@ -30,47 +30,44 @@ const LoggedOutContainer = () => {
 
 const LoggedInContainer = ({ username, customFunc }) => {
   return(
-    <div className='flex gap-3 items-center justify-between'>
-      <HiUserCircle className='text-gold'/>
+    <div className='flex flex-col gap-3 items-center justify-between text-right'>
 
-      <h1 className='text-gold text-2xl'>Welcome back, {username}!</h1>
+      <div>
+        <h1 className='text-gold text-2xl'>Welcome back, {username}!</h1>
+        <HiUserCircle className='text-gold'/>
+      </div>
 
-      <button onClick={logoutFunc} className='text-mintgreen text-xl'>Logout</button>
+      <button onClick={customFunc} className='text-mintgreen text-xl'>Logout</button>
   </div>
   )
 
 }
 
-const logoutFunc = () => {
-  localStorage.clear('user_info');
-
-  window.location.reload();
-}
-
-
 const Navbar = () => {
 
+  const logoutFunc = () => {
+    localStorage.clear('user_info');
+  
+    window.location.reload();
+  }
 
-  var checkLogIn = () => {
+  const checkLogin = () => {
+    
     if(isLoggedIn()){
+      const user = JSON.parse(localStorage.getItem('user_info'));
+
       console.log('logged in')
-      const user = JSON.parse(localStorage.getItem('user_info'))
-      console.log(user['username'])
-      return(<LoggedInContainer username={user['username']}/>)
+      console.log(user['username']);
+
+      return(<LoggedInContainer username={user['username']} customFunc={logoutFunc} />);
     }
     else{
-      console.log('not logged in')
-      return(<LoggedOutContainer />)
-    }
-  }
-  
-  // const path = location.pathname;
-  // const location = useLocation();
-    
-  // path === '/login' || path === '/register' ? false : true
-  // const [ display, setDisplay ] = useState(
-  // );
+      console.log('not logged in');
 
+      return(<LoggedOutContainer />);
+    }
+  }; // end of checkLogin
+  
     
   return (
       <Nav className='bg-darkpurple flex flex-row border-b-2 border-gold w-screen'>
@@ -96,7 +93,7 @@ const Navbar = () => {
 
         <div>
           
-          {checkLogIn()}
+          {checkLogin()}
           
         </div>
           

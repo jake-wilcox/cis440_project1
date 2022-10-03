@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 // import { Navbar } from '../components';
@@ -63,15 +63,15 @@ const Login = () => {
     
 
       console.log(data)
-      if(data['status'] == 0){
+      if(data['status'] === 0){
         console.log('logged in')
         localStorage.setItem("user_info", JSON.stringify(data))
         navigate("/")
       }else 
-      if(data['status'] == 2){
+      if(data['status'] === 2){
         toast.error("Email not found, try again or create an account", toastOptions)
       }else
-      if(data['status'] == 3){
+      if(data['status'] === 3){
         toast.error("Incorrect password", toastOptions)
       }else{
         toast.error("Somethings wrong on our end...\ntry again later", toastOptions)

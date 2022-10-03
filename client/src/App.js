@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Login, Register, Snake, TicTacToe, Hangman, Games, Leaderboard, Hangmanx } from './pages';
+import { Login, Register, Snake, TicTacToe, Hangman, Games, Leaderboard } from './pages';
 
 
 // import { useStateContext } from './contexts/ContextProvider';

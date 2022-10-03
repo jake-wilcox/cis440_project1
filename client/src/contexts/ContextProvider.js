@@ -52,5 +52,22 @@ export function useInterval(callback, delay) {
   }
 
 
+export const isLoggedIn = () => {
+
+  if(localStorage.length === 1 ){
+    const user = JSON.parse(localStorage.getItem('user_info'))
+
+    console.log('logged in')
+    console.log(user['username'])
+
+    return(true)
+  }
+  else{
+    console.log('not logged in')
+
+    return(false)
+  }
+}
+
 export const useStateContext = () => useContext(StateContext);
 

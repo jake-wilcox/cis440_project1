@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Navbar, Footer } from '../components'
 import { useInterval } from '../contexts/ContextProvider';
-import isLoggedIn from '../components/isLoggedIn';
+import { isLoggedIn } from '../contexts/ContextProvider';
 import axios from 'axios';
 
 
