@@ -75,7 +75,7 @@ class Hangman extends Component {
           <>
           <Navbar />
             <div className = "bg-darkblue h-screen">
-                <h1 className = "text-center pt-5 text-gold text-5xl">Hangman</h1>
+                <h1 className = "text-center pt-5 text-gold text-5xl">HANGMAN</h1>
                 <div>
                 <p className = "text-center text-gold text-xl mt-2"><strong>Instructions</strong>: Please guess the letters by clicking on the buttons. You have 6 attempts. Good luck!</p>
                 </div>
@@ -98,7 +98,7 @@ class Hangman extends Component {
 
                     <p>{gameStats}</p>
                     
-                    <button className = 'btn btn-info bg-mintgreen mt-12 text-darkpurple font-bold text-xl' onClick = {this.resetButton}>Reset</button>
+                    <button className = 'btn btn-info bg-mintgreen mt-12 text-darkpurple font-bold text-xl px-4 py-2' onClick = {this.resetButton}>Reset</button>
                 </div>
                 
             </div>

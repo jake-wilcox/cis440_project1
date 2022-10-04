@@ -1,54 +1,22 @@
 .board {
-    /* margin-left: auto; */
-    /* margin-right: auto; */
     margin: auto;
 }
 
-/* .x {
-    color: #e76f51;
-}
-
-.o {
-    color: #2A9D8F;
-} */
-
-.column {
-    display: flex;
-}
 
 .cell {
-    width:89px;
-    height:89px;
-    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #F3DFBF;
     text-align:center;
     display: flex;
     font-size: xxx-large;
     font-weight: 900;
     text-transform: capitalize;
     cursor: pointer;
-    color: #e09f3e;
-
-    background-color: #2c4251;
+    color: #F3DFBF;
+    background-color: #0e0c1f;
     justify-content: center;
 
-    /* margin-left: auto; */
-    /* margin-right:auto; */
 
 }
 
-.reset {
-    line-height: 1.5em;
-    text-align: center;
-    display:inline-block;
-    font-size: 1rem;
-    width: 4.5em;
-    height: 3em;
-    border-radius: 20%;
-    background-color: #2c4251;
-    color: white;
-    /* cursor: pointer; */
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid black;
-    
-}

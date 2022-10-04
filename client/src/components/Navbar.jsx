@@ -71,7 +71,7 @@ const Navbar = () => {
     
   return (
       <Nav className='bg-darkpurple flex flex-row border-b-2 border-gold w-screen'>
-        <Link to='/'>
+        <Link to='/' className='hover:no-underline'>
           <NavLogo className='gap-3'>
               <GiAbstract111 />
               <h1>Kool Gamez</h1>
@@ -81,11 +81,11 @@ const Navbar = () => {
 
           <div className='flex gap-12 items-center'>
 
-            <Link to='leaderboard' className='text-gold text-xl flex text-center'>
+            <Link to='leaderboard' className='text-gold text-xl flex text-center hover:text-mintgreen hover:no-underline'>
               <span>Leaderboards</span>
             </Link>
 
-            <Link to='/' className='text-gold text-xl flex text-center'>
+            <Link to='/' className='text-gold text-xl flex text-center hover:text-mintgreen hover:no-underline'>
               <span>Home</span>
             </Link>
           
