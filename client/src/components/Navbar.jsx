@@ -35,12 +35,12 @@ const LoggedInContainer = ({ username, customFunc }) => {
         <div className='flex pt-2'>
 
           <HiUserCircle className='text-gold text-3xl mr-2'/>
-          <h1 className='text-gold text-2xl'>Welcome back, Henry!</h1>
+          <h1 className='text-gold text-2xl'>Welcome back, {username}</h1>
                 
         </div>
 
-        <button className='text-mintgreen text-md text-right'>Logout</button>
-        
+        <button onClick={customFunc} className='text-mintgreen text-md text-right'>Logout</button>
+
       </div>  
   )
 
