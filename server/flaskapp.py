@@ -127,28 +127,35 @@ def leaderboard():
     return scores
 
 
-# @app.route('/updateScore', methods=['POST'])
-# def update():
-#     #Takes in users id, game, and current score
-#     # we need to update total score in both local storage, and our database
+@app.route('/updateScore', methods=['POST'])
+def update():
+    #Takes in users id, game, and current score
+    # we need to update total score in both local storage, and our database
 
-#     # needs the games tile LOWERCASE, Current users id, and their score for this game from localStorage
+    # needs the games tile LOWERCASE, Current users id, and their score for this game from localStorage
 
-#     print('updating score')
-#     request_data = request.get_json()
-#     print(request_data)
-
+    print('updating score')
+    request_data = request.get_json()
     
-#     cursor = mysql.connection.cursor()
-#     pass
+    game = request_data['game']
+    oldScore = request_data['oldScore']
+    addedScore = request_data['addedScore']
+    userID = request_data['user']['id']
 
 
+    print(game)
+    print(oldScore)
+    print(addedScore)
+    print(userID)
 
+    newScore = oldScore + addedScore
+    cursor = mysql.connection.cursor()
 
+    cursor.execute(f"UPDATE user SET {game} = {newScore} WHERE id = {userID}")
+    mysql.connection.commit()
+    print('Score Updated')
 
-#     cursor.execute(f"UPDATE user SET {request_data['game']} = {} WHERE id = {request_data['id']}")
-#     # mysql.connection.commit()
-#     # print('Score Updated')
+    return {'status': 0}
 
 
     
