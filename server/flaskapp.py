@@ -96,7 +96,6 @@ def register():
     try:
         cursor.execute(f"INSERT INTO user (username, password, email, hangmanScore, snakeScore, tictactoeScore) VALUES ('{request_data['username']}', '{request_data['password']}', '{request_data['email']}', 0, 0, 0)")
         mysql.connection.commit()
-        cursor.close()
         print('created')
     except:
         print('sql connection failedyy')
@@ -105,6 +104,7 @@ def register():
     cursor.execute(f"SELECT * FROM user WHERE email = '{request_data['email']}'")
     account = cursor.fetchone()
     account['status'] = 0
+    cursor.close()
     return account
  
 
