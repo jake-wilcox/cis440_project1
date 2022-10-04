@@ -30,15 +30,18 @@ const LoggedOutContainer = () => {
 
 const LoggedInContainer = ({ username, customFunc }) => {
   return(
-    <div className='flex flex-col gap-3 items-center justify-between text-right'>
+    <div className='flex flex-col'>
 
-      <div>
-        <h1 className='text-gold text-2xl'>Welcome back, {username}!</h1>
-        <HiUserCircle className='text-gold'/>
-      </div>
+        <div className='flex pt-2'>
 
-      <button onClick={customFunc} className='text-mintgreen text-xl'>Logout</button>
-  </div>
+          <HiUserCircle className='text-gold text-3xl mr-2'/>
+          <h1 className='text-gold text-2xl'>Welcome back, Henry!</h1>
+                
+        </div>
+
+        <button className='text-mintgreen text-md text-right'>Logout</button>
+        
+      </div>  
   )
 
 }
@@ -81,11 +84,11 @@ const Navbar = () => {
 
           <div className='flex gap-12 items-center'>
 
-            <Link to='leaderboard' className='text-gold text-xl flex text-center hover:text-mintgreen hover:no-underline'>
+            <Link to='leaderboard' className='text-gold text-2xl flex text-center hover:text-mintgreen hover:no-underline'>
               <span>Leaderboards</span>
             </Link>
 
-            <Link to='/' className='text-gold text-xl flex text-center hover:text-mintgreen hover:no-underline'>
+            <Link to='/' className='text-gold text-2xl flex text-center hover:text-mintgreen hover:no-underline'>
               <span>Home</span>
             </Link>
           
@@ -94,7 +97,8 @@ const Navbar = () => {
         <div>
           
           {checkLogin()}
-          
+                        
+            
         </div>
           
 
