@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
+import scoreToDb from './ScoreToDb';
 
 import '../contexts/TicTacToeStyles.css';
 
@@ -138,6 +139,13 @@ const TicTacToeGame = () => {
         if (winner === "draw") {
             return "It's a draw!";
         } else if (winner) {
+
+            const user = JSON.parse(localStorage.getItem('user_info'))
+            const oldScore = user['tictactoeScore']
+            const addedScore = 1
+            scoreToDb('tictactoeScore', oldScore, addedScore, user)
+            user['tictactoeScore'] = oldScore + 1
+            localStorage.setItem('user_info', JSON.stringify(user))
             return `${winner} won!`
         };
     };

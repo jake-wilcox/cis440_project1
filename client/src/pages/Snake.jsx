@@ -34,10 +34,10 @@ const Snake = () => {
   
     const user = JSON.parse(localStorage.getItem('user_info'))
     const oldScore = user['snakeScore']
-    const newScore = appleCount
+    const addedScore = appleCount
     
     
-    scoreToDb('snakeScore', oldScore, newScore, user)
+    scoreToDb('snakeScore', oldScore, addedScore, user)
 
     user['snakeScore'] = oldScore + appleCount
     console.log('new snake score')

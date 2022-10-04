@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { randomWord } from './WordBank';
+import scoreToDb from './ScoreToDb';
 
 import step0 from "../data/0.jpeg";
 import step1 from "../data/1.jpeg";
@@ -59,6 +60,16 @@ class HangmanGame extends Component {
 
         if (isWinner) {
             gameStats = "Yay! You guessed it."
+
+            const user = JSON.parse(localStorage.getItem('user_info'))
+            const oldScore = user['hangmanScore']
+            const addedScore = 1
+
+            scoreToDb('hangmanScore', oldScore, addedScore, user)
+
+            user['hangmanScore'] = oldScore + 1
+            localStorage.setItem('user_info', JSON.stringify(user))
+
         };
         if (gameOver) {
             gameStats  = "You lost! Click 'restart to play again."
