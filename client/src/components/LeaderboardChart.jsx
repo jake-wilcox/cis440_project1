@@ -18,7 +18,7 @@ const LeaderboardChart = ({ gameTitle, userData }) => {
             <div>
               <div>
                 <span className='bg-darkpurple text-3xl text-gold border-2 border-gold rounded-2xl px-20 py-5'> {gameTitle} </span>
-
+                
                 <div>
                   <ul><span className='text-2xl text-gold'>{listItems}</span></ul>                 
                 </div>
