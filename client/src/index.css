@@ -12,7 +12,7 @@ body {
   width: 150px;
   height: 150px;
   border: 1px solid #F3DFBF;
-  text-align:center;
+  text-align: center;
   display: flex;
   font-size: xxx-large;
   font-weight: 900;
@@ -21,7 +21,7 @@ body {
   color: #F3DFBF;
   background-color: #0e0c1f;
   justify-content: center;
-
+  align-items: center;
 
 }
 
