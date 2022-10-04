@@ -1,8 +1,8 @@
-import React from 'react'
-import { Navbar } from '../components'
-import TicTacToeGame from '../components/TicTacToeGame';
+import React from 'react';
+import { Navbar } from '../components';
+import TicTacToeGame from '../components/TIcTacToeGame';
 
-function TicTacToeApp() {
+function TicTacToe() {
 
   return (
     <>
@@ -12,4 +12,4 @@ function TicTacToeApp() {
   );
 }
 
-export default TicTacToeApp
+export default TicTacToe

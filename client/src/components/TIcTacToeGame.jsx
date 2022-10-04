@@ -22,7 +22,7 @@ const players = {
     },
 };
 
-export default function TicTacToeGame() {
+const TicTacToeGame = () => {
     // const board = useState(Array(9).fill(""));
     const [board, setBoard] = useState([
         ["", "", ""],
@@ -214,5 +214,7 @@ export default function TicTacToeGame() {
             
         </div>
     );
-
+        
 };
+
+export default TicTacToeGame;

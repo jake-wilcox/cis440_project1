@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navbar } from '../components';
-import { HangmanGame} from '../components/HangmanGame';
+import HangmanGame from '../components/HangmanGame';
 
 function Hangman () {
   return (
