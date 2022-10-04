@@ -45,6 +45,7 @@ def login():
             print('cursor created')
             cursor.execute(f"SELECT * FROM user WHERE email = '{request_data['email']}'")
             account = cursor.fetchone()
+            cursor.close()
             print(account)
         except:
             print('failed connect to database')
@@ -95,10 +96,10 @@ def register():
     try:
         cursor.execute(f"INSERT INTO user (username, password, email, hangmanScore, snakeScore, tictactoeScore) VALUES ('{request_data['username']}', '{request_data['password']}', '{request_data['email']}', 0, 0, 0)")
         mysql.connection.commit()
+        cursor.close()
         print('created')
     except:
         print('sql connection failedyy')
-        cursor.close()
         return {'status': 1}
 
     cursor.execute(f"SELECT * FROM user WHERE email = '{request_data['email']}'")
@@ -119,6 +120,7 @@ def leaderboard():
 
     cursor.execute("SELECT username, tictactoeScore FROM user ORDER BY tictactoeScore DESC LIMIT 3")
     tictactoeScores = cursor.fetchall()
+    cursor.close()
 
     print(snakeScores)
     print(hangmanScores)
@@ -153,6 +155,7 @@ def update():
 
     cursor.execute(f"UPDATE user SET {game} = {newScore} WHERE id = {userID}")
     mysql.connection.commit()
+    cursor.close()
     print('Score Updated')
 
     return {'status': 0}
