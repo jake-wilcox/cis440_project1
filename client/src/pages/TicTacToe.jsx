@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar, Footer } from '../components';
-import '../contexts/TicTacToeStyles.css';
 import scoreToDb from '../components/ScoreToDb';
 
 function timer(milliseconds) {
@@ -219,7 +218,7 @@ function reset() {
 
             {winner && <h2>{displayWinner()}</h2>}
 
-                <button className = 'btn btn-info  bg-mintgreen mt-10 text-darkpurple font-bold text-xl px-4 py-2' onClick = {reset}>
+                <button className = 'btn btn-info  bg-mintgreen mt-10 text-darkpurple font-bold text-xl px-4 py-2 hover:bg-mintgreen-hover hover:text-gold' onClick = {reset}>
                     Reset
                 </button>
         </div>

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { GiAbstract111 as Logo } from 'react-icons/gi';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-
+import { Navbar } from '../components';
 import axios from 'axios';
 
 
@@ -104,6 +104,7 @@ const Register = () => {
         
   return (
     <>
+        <Navbar /> 
         <FormContainer className='flex flex-col justify-center items-center gap-4'>
             
             <form action="" onSubmit={(event) => handleSubmit(event)} className='flex flex-col gap-8 py-12 px-20 border-1 border-gold'>

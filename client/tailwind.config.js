@@ -5,6 +5,7 @@ module.exports = {
     colors: {
       'gold': '#F3DFBF',
       'mintgreen': '#40d6ae',
+      'mintgreen-hover': '#01ae80',
       'darkpurple': '#0e0c1f',
       'white': '#ffffff',
       'darkblue': '#151145'

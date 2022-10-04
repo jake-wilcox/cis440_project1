@@ -8,6 +8,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.cell {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #F3DFBF;
+  text-align:center;
+  display: flex;
+  font-size: xxx-large;
+  font-weight: 900;
+  text-transform: capitalize;
+  cursor: pointer;
+  color: #F3DFBF;
+  background-color: #0e0c1f;
+  justify-content: center;
+
+
+}
 
 @tailwind base;
 @tailwind components;

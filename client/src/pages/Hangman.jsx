@@ -98,7 +98,7 @@ class Hangman extends Component {
 
                     <p>{gameStats}</p>
                     
-                    <button className = 'btn btn-info bg-mintgreen mt-12 text-darkpurple font-bold text-xl px-4 py-2' onClick = {this.resetButton}>Reset</button>
+                    <button className = 'btn btn-info bg-mintgreen mt-12 text-darkpurple font-bold text-xl px-4 py-2 hover:bg-mintgreen-hover hover:text-gold' onClick = {this.resetButton}>Reset</button>
                 </div>
                 
             </div>

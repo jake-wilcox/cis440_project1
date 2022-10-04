@@ -7,10 +7,11 @@ const Games = () => {
 
   return (
     <>
-      <Navbar className='fixed'/>
+      <Navbar/>
 
       <div className='flex justify-center w-full
       h-full bg-darkblue pt-40 pb-64'>
+
 
         <GameTile image={HangmanImg} title='Hangman' route='./hangman'/>
 
